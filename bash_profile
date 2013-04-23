@@ -4,6 +4,13 @@
 # put terminal into VI mode
 set -o vi
 
+# bash complettion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
+
+
 ############
 #  Colors  #
 ############
@@ -12,6 +19,8 @@ txtrst='\e[0m'    # text reset
 blue='\033[0;34m' # non bold blue
 red='\e[1;31m'    # red
 purple='\e[1;35m' # purple
+
+
 
 ################
 #  Prompt Mod  #
@@ -39,6 +48,8 @@ prompt_command(){
 PROMPT_COMMAND=prompt_command
 PS1='->'
 
+
+
 ############
 #  LS Mod  #
 ############
@@ -46,24 +57,12 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxexexaxaxaxax
 
 
+
 #############
 #  Aliases  #
 #############
 
-### Directories ####
-alias doc='cd ~/Documents/'
-
-alias tikiold='cd ~/Dropbox-work/Dropbox/NutForge/Our\ Brands/Tikiosk/tikiosk.com_demo/httpdocs/wp-content/plugins/tikiosk/'
-
-alias tikiosk='cd ~/Dropbox-work/Dropbox/NutForge/Our\ Brands/Tikiosk/tikiosk.com_woo/wp-content/plugins/tikiosk/'
-
-alias uniforge='cd ~/Dropbox-work/Dropbox/UniForge\ Clients/'
-
-alias mamp='cd /Applications/MAMP/htdocs/'
-
-alias nddery='cd ~/Sites/nddery.ca/'
-
-alias iphonesimulator='/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app/Contents/MacOS/iPhone\ Simulator'
+alias ios='/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app/Contents/MacOS/iPhone\ Simulator'
 
 
 
@@ -116,9 +115,9 @@ alias irc='irc nddery chat.freenode.net'
 
 ### GIT ###
 # Git Completion
-source ~/Dropbox/git-completion.bash
+# source ~/Dropbox/git-completion.bash
 
-# Aliases for faster development
+# Aliases for git
 alias gs='git status'
 alias gc='git commit'
 alias ga='git add'
@@ -175,25 +174,6 @@ function startEmulator()
 
 
 
-## Deploy to Android Device ##
-# Will build the project with MakeTi and install on device
-function deployAndroid()
-{
-
-  # deploy the project .apk with MakeTi
-  echo "Deploying using MakeTi - apk only"
-  make deploy platform=android apkonly=true
-
-  # and (re)install on device
-  echo "Installing on your device"
-  adb install -r build/android/bin/app.apk
-
-  echo "All done!"
-
-}
-
-
-
 # empty all VIM backup/swap/views directory (for when there's some problem
 # with arrow keys and...)
 function cleanVIM()
@@ -224,5 +204,3 @@ function minify()
 {
   curl -X POST -s --data-urlencode "input@$1" http://www.cssminifier.com/raw > ${1%.css}.min.css
 }
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
