@@ -36,5 +36,8 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
+# Install bash completion
+brew install bash-completion
+
 # and set OSX defaults
 /bin/bash $dir/scripts/osx-set-defaults.sh
