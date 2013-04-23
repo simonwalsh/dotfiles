@@ -1,6 +1,8 @@
 #!/bin/bash
 ############################
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
+#
+# It also set OSX defaults.
 ############################
 
 
@@ -33,3 +35,6 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+# and set OSX defaults
+/bin/bash $dir/scripts/osx-set-defaults.sh
