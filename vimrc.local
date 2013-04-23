@@ -1,0 +1,146 @@
+"
+"
+" .vimrc.local file of Nicolas Duvieusart Dery
+"
+" last edited  September 18th 2012
+"
+"
+
+
+"---------------------------------------------------------------------
+" GENERAL
+"---------------------------------------------------------------------
+" Tell VIM that we will be using a dark background
+set background=dark
+
+" F*** relative line numbers, you never know where you are.
+set nu
+
+" wrap long lines
+set wrap
+set linebreak
+set textwidth=80
+set formatoptions+=qrn1
+
+" indent at the same level of the previous line
+set smartindent
+set autoindent
+
+" for when moving text (shift + >> \ shift + <<)
+set shiftwidth=2
+
+" change the width of the tab character
+set tabstop=2
+
+" when pressing <TAB>, uses the amount of softtabstop if set
+set expandtab
+
+" tabs are tabs, not spaces
+" set noexpandtab
+
+" affect what happens when pressing <TAB> or <BS>
+set softtabstop=2
+
+" set the space between each line to 3
+set linespace=5
+
+" lower the timeout when typing leader key followed by a command
+set timeoutlen=500
+
+"" auto format comments block
+set comments=sl:/**,mb:\ *,elx:\ */
+
+" make HTML snippets available in PHP
+au BufRead *.php set ft=php.html
+au BufNewFile *.php set ft=php.html
+
+
+
+"---------------------------------------------------------------------
+" KEY MAPPING
+"---------------------------------------------------------------------
+
+" Tabular mapping
+"if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+"endif
+
+" remap <space> to : (colon)
+nmap <space> :
+"
+" remap jj to <esc>
+imap jj <esc>
+
+" map + to :!touch (to touch a file)
+map + :!touch 
+
+
+
+"---------------------------------------------------------------------
+" plugins
+"---------------------------------------------------------------------
+" change tComment shortcut to <Leader>c
+map <leader>c <c-_><c-_>
+
+" setting the author var for SnipMate
+let g:snips_author = 'Nicolas Duvieusart Dery <nddery@gmail.com>'
+
+" <TAB>: completion. 
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>" 
+" imap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>" 
+
+" disable NERDTree from opening on startup
+let g:nerdtree_tabs_open_on_gui_startup=0
+
+" Remove relative lines
+UnBundle 'myusuf3/numbers.vim'
+
+
+
+"---------------------------------------------------------------------
+" IF HAS GUI RUNNING (instead of using .gvimrc)
+"---------------------------------------------------------------------
+if has('gui_running')
+  " Transparency is way cool
+  set transparency=5
+
+  " set the font and font-size to use
+  set guifont=Andale\ Mono\ Regular:h16,Menlo\ Regular:h18,Consolas\ Regular:h16,Courier\ New\ Regular:h18
+
+
+  " set default width (lines) and height (columns)
+  set lines=120
+  set columns=80
+
+  " automatically enable mouse usage
+  set mouse=a
+
+  " remove the toolbar
+  set guioptions-=T
+
+  " remove the scrollbar
+  set guioptions-=r
+
+  " remove the left scrollbar
+  set guioptions-=L
+
+  " wrap long lines
+  set textwidth=80
+
+  " full screen takes all horizontal space
+  set fuopt+=maxhorz " grow to maximum horizontal width on entering fullscreen mode
+
+  " disable errorbells and enable visual bell
+  set vb t_vb=
+
+  " macmenu &Edit.Find.Find\.\.\. key=<nop> " free up Command-F
+  map <leader>fu :set invfu
+else
+  color solarized
+
+  " disable errorbells and enable visual bell
+  set noeb vb t_vb=
+endif
