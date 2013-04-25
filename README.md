@@ -5,6 +5,7 @@ From a terminal, run this :
 
 ```
 $ cd dotfiles
+$ chmod +x scripts/install.sh
 $ ./scripts/install.sh
 ```
 
