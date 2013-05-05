@@ -36,6 +36,9 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
+# Install spf13-vim
+# curl http://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
+
 # Install bash completion
 brew install bash-completion
 
