@@ -5,8 +5,8 @@ From a terminal, run this :
 
 ```
 $ cd dotfiles
-$ chmod +x scripts/install.sh
-$ ./scripts/install.sh
+$ chmod 755 scripts/install
+$ ./scripts/install
 ```
 
 And now you just need to install spf13-vim!
