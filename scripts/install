@@ -17,7 +17,10 @@ mkdir -p $bak
 for file in $files; do
   if [ -f $dest/.$file ]
   then
-    mv $dest/.$file $bak/$file
+    # Follow symlink
+    cp -LR $dest/.$file $bak/$file
+    # And remove the file
+    rm $dest/.$file
   fi
 done
 
