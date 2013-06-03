@@ -197,7 +197,9 @@ function cleanVIM()
 
 
 # Force empty the trash (not securely)
-function emptyTrash() { rm -rf ~/.Trash/* }
+function emptyTrash() {
+  rm -rf ~/.Trash/*
+}
 
 
 ################
