@@ -104,6 +104,11 @@ UnBundle 'myusuf3/numbers.vim'
 " IF HAS GUI RUNNING (instead of using .gvimrc)
 "---------------------------------------------------------------------
 if has('gui_running')
+  " Disable backup because CodeKit doesn't like 'em!
+  set nobackup;
+  set nowritebackup;
+  set noswapfile;
+
   " Transparency is way cool
   set transparency=5
 
