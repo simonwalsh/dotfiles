@@ -210,3 +210,5 @@ function minify()
 {
   curl -X POST -s --data-urlencode "input@$1" http://www.cssminifier.com/raw > ${1%.css}.min.css
 }
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
