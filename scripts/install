@@ -9,7 +9,7 @@ source=`pwd`
 bak=$source.bak
 
 # list of files/folders to symlink
-files="bash_profile vimrc.bundles.local vimrc.encrypted vimrc.local xvimrc"
+files="bash_profile vimrc.bundles.local vimrc.encrypted vimrc.local xvimrc tmux.conf"
 
 # Backup everything
 echo "Creating a backup of files"
