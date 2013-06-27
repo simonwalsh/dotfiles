@@ -36,6 +36,12 @@ done
 # Install bash completion
 brew install bash-completion
 
+# Install tmux
+brew install tmux
+
+# Install reattach-to-user-namespace
+brew installl reattach-to-user-namespace
+
 # and set OSX defaults
 #/bin/bash $dir/scripts/osx-set-defaults.sh
 
