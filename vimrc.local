@@ -113,7 +113,8 @@ if has('gui_running')
   set transparency=5
 
   " set the font and font-size to use
-  set guifont=Andale\ Mono\ Regular:h16,Menlo\ Regular:h18,Consolas\ Regular:h16,Courier\ New\ Regular:h18
+  " set guifont=Andale\ Mono\ Regular:h16,Menlo\ Regular:h18,Consolas\ Regular:h16,Courier\ New\ Regular:h18
+  set guifont=Liberation\ Mono\ for\ Powerline:h18
 
 
   " set default width (lines) and height (columns)
