@@ -61,6 +61,8 @@ export LSCOLORS=ExFxCxDxBxexexaxaxaxax
 
 alias tmux='TERM=xterm-256color tmux'
 
+alias devwork='cd ~/Dropbox-work/Dropbox/DEV/'
+
 alias ios='/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app/Contents/MacOS/iPhone\ Simulator'
 
 
