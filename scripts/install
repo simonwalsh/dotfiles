@@ -32,6 +32,9 @@ cd ~
 if [ ! -d .oh-my-zsh ]
 then
   git clone https://github.com/nddery/oh-my-zsh.git .oh-my-zsh
+  cd .oh-my-zsh
+  git remote add upstream https://github.com/robbyrussell/oh-my-zsh.git
+  git fetch upstream
 fi
 
 # And now symlink new files into place.
