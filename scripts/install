@@ -9,7 +9,8 @@ source=`pwd`
 bak=$source.bak
 
 # list of files/folders to symlink
-files="bash_profile vimrc.bundles.local vimrc.encrypted vimrc.local xvimrc tmux.conf"
+# files="bash_profile vimrc.bundles.local vimrc.encrypted vimrc.local xvimrc tmux.conf"
+files="zshrc vimrc.bundles.local vimrc.encrypted vimrc.local xvimrc tmux.conf"
 
 # Backup everything
 echo "Creating a backup of files"
@@ -24,17 +25,28 @@ for file in $files; do
   fi
 done
 
+# Install zsh and oh-my-zsh
+brew install zsh
+
+cd ~
+if [ ! -d .oh-my-zsh ]
+then
+  git clone https://github.com/nddery/oh-my-zsh.git .oh-my-zsh
+fi
+
 # And now symlink new files into place.
 echo "Copying new files into place."
 for file in $files; do
   ln -s $source/$file $dest/.$file
 done
 
+if [ ! -f ~/.zshrc ]
+then
+  cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+fi
+
 # Install spf13-vim
 # curl http://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
-
-# Install bash completion
-brew install bash-completion
 
 # Install tmux
 brew install tmux
@@ -42,7 +54,10 @@ brew install tmux
 # Install reattach-to-user-namespace
 brew install reattach-to-user-namespace
 
-# and set OSX defaults
-#/bin/bash $dir/scripts/osx-set-defaults.sh
+# Change shell to zsh if not already like so
+if [ $(echo $SHELL) != '/bin/zsh' ]
+then
+  echo 'NO'
+fi
 
 echo "All done!"
