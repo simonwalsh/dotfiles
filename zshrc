@@ -49,3 +49,47 @@ plugins=(git tmux)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+
+# Git
+alias gti='git'
+alias gs='git status'
+alias gc='git commit'
+alias ga='git add'
+alias gb='git branch'
+alias gch='git checkout'
+# better logging
+alias gl='git log --pretty=format:"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]" --decorate --date=short'
+# what have I done yesterday
+alias yesterday="git log --since '1 day ago' --oneline --author nddery@gmail.com"
+
+# Vim
+# Start VIM in "encrypted" mode
+alias vimenc="vim -u ~/.vimrc.encrypted -x"
+
+# Update SPF13-VIM-3
+alias updateVim="curl http://j.mp/spf13-vim3 -L -o - | sh"
+
+# empty all VIM backup/swap/views directory (for when there's some problem
+# with arrow keys and...)
+function cleanVIM()
+{
+
+  # directories we'll empty are
+  echo "Cleaning ~/.vimbackup/"
+  rm -Rf ~/.vimbackup/*
+  echo "Cleaning ~/.vimswap/"
+  rm -Rf ~/.vimswap/*
+  echo "Cleaning ~/.vimviews/"
+  rm -Rf ~/.vimviews/*
+  echo "Cleaning ~/.vimundo/"
+  rm -Rf ~/.vimundo/*
+  echo "All done!"
+
+}
+
+# Random function
+# Pass in the style name and have a drink
+function minify()
+{
+  curl -X POST -s --data-urlencode "input@$1" http://www.cssminifier.com/raw > ${1%.css}.min.css
+}
