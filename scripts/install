@@ -57,7 +57,7 @@ brew install reattach-to-user-namespace
 # Change shell to zsh if not already like so
 if [ $(echo $SHELL) != '/bin/zsh' ]
 then
-  echo 'NO'
+  chsh -s /bin/zsh
 fi
 
 echo "All done!"
