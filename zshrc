@@ -48,7 +48,11 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+# Archiving
+alias tarbz2='tar -jcvf'
+alias targz='tar -zcvf'
+alias untarbz2='tar -jxvf'
+alias untargz='tar -zxvf'
 
 # Git
 alias gti='git'
