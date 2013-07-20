@@ -76,6 +76,9 @@ alias vimenc="vim -u ~/.vimrc.encrypted -x"
 # Update SPF13-VIM-3
 alias updateVim="curl http://j.mp/spf13-vim3 -L -o - | sh"
 
+# Faster Directory Browsing
+alias htdocs='/Applications/MAMP/htdocs/'
+
 # empty all VIM backup/swap/views directory (for when there's some problem
 # with arrow keys and...)
 function cleanVIM()
