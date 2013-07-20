@@ -48,6 +48,9 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# Stop auto correcting good commands!
+alias vagrant='nocorrect vagrant'
+
 # Archiving
 alias tarbz2='tar -jcvf'
 alias targz='tar -zcvf'
