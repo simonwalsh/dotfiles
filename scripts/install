@@ -27,7 +27,6 @@ done
 
 # Install zsh and oh-my-zsh
 brew install zsh
-brew install zsh-syntax-highlighting
 
 cd ~
 if [ ! -d .oh-my-zsh ]
@@ -44,6 +43,18 @@ done
 if [ ! -f ~/.zshrc ]
 then
   cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+fi
+
+# Install zsh-syntax-highlighting
+cd ~/.oh-my-zsh/custom/
+if [ ! -d plugins ]
+then
+  mkdir plugins
+fi
+cd plugins
+if [ ! -d zsh-syntax-highlighting ]
+then
+  git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 fi
 
 # Install spf13-vim
