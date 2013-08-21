@@ -27,6 +27,7 @@ done
 
 # Install zsh and oh-my-zsh
 brew install zsh
+brew install zsh-syntax-highlighting
 
 cd ~
 if [ ! -d .oh-my-zsh ]
