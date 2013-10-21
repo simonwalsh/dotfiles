@@ -79,6 +79,7 @@ alias updateVim="curl http://j.mp/spf13-vim3 -L -o - | sh"
 # Faster Directory Browsing
 alias htdocs='/Applications/MAMP/htdocs/'
 
+
 # empty all VIM backup/swap/views directory (for when there's some problem
 # with arrow keys and...)
 function cleanVIM()
@@ -97,9 +98,27 @@ function cleanVIM()
 
 }
 
+
 # Random function
 # Pass in the style name and have a drink
 function minify()
 {
   curl -X POST -s --data-urlencode "input@$1" http://www.cssminifier.com/raw > ${1%.css}.min.css
+}
+
+
+# Fix vagrant guest stuck at waiting for boot or waiting for graceful
+# shutdown.
+function forceVagrantShutdown()
+{
+
+  # List available VMs
+  VBoxManage list runningvms
+
+  read -p "Which VM do you want to power off? " RESP
+
+  VBoxManage controlvm $RESP poweroff
+
+  echo "VM powered off. You shoud now be able run `vagrant up` sucessfully."
+
 }

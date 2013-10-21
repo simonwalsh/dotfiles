@@ -119,7 +119,7 @@ if has('gui_running')
 
   " set default width (lines) and height (columns)
   set lines=120
-  set columns=80
+  set columns=85 " 80 + 5, line numbers can take up to 5 columns
 
   " automatically enable mouse usage
   set mouse=a
