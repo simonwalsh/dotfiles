@@ -48,6 +48,9 @@ plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
+# Force mkdir to create intermediate dirs
+alias mkdir='mkdir -p'
+
 # Stop auto correcting good commands!
 alias vagrant='nocorrect vagrant'
 
