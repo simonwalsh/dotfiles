@@ -46,7 +46,7 @@ set expandtab
 " affect what happens when pressing <TAB> or <BS>
 set softtabstop=2
 
-" set the space between each line to 3
+" set the space between each line to 5
 set linespace=5
 
 set scrolloff=0
@@ -110,7 +110,6 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 
 " Remove relative lines
 UnBundle 'myusuf3/numbers.vim'
-
 
 
 "---------------------------------------------------------------------

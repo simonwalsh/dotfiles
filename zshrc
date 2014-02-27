@@ -83,6 +83,19 @@ alias vimenc="vim -u ~/.vimrc.encrypted -x"
 alias updateVim="curl http://j.mp/spf13-vim3 -L -o - | sh"
 
 
+# Use the existing VIM session if it exists
+# Or fallback to normal mvim if no argument is passed
+# alias mvim="mvim --remote-silent || mvim"
+function mvim() {
+  if [ "$1" != "" ]
+  then
+    command mvim --remote-silent $1
+  else
+    command mvim
+  fi
+}
+
+
 # empty all VIM backup/swap/views directory (for when there's some problem
 # with arrow keys and...)
 function cleanVIM() {
