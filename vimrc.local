@@ -22,10 +22,12 @@ set noswapfile
 set nu
 
 " wrap long lines
-set wrap
-set linebreak
-set textwidth=80
+set nowrap
+" set linebreak
+set textwidth=0
+set wrapmargin=0
 set formatoptions+=qrn1
+set colorcolumn=81
 
 " indent at the same level of the previous line
 set smartindent
@@ -52,7 +54,7 @@ set linespace=5
 set scrolloff=0
 
 " lower the timeout when typing leader key followed by a command
-set timeoutlen=300
+set timeoutlen=400
 set ttimeoutlen=0
 
 "" auto format comments block
@@ -120,13 +122,11 @@ if has('gui_running')
   set transparency=5
 
   " set the font and font-size to use
-  " set guifont=Andale\ Mono\ Regular:h16,Menlo\ Regular:h18,Consolas\ Regular:h16,Courier\ New\ Regular:h18
   set guifont=Liberation\ Mono\ for\ Powerline:h18
-
 
   " set default width (lines) and height (columns)
   set lines=120
-  set columns=85 " 80 + 5, line numbers can take up to 5 columns
+  set columns=90
 
   " automatically enable mouse usage
   set mouse=a
