@@ -52,7 +52,8 @@ set linespace=5
 set scrolloff=0
 
 " lower the timeout when typing leader key followed by a command
-set timeoutlen=500
+set timeoutlen=300
+set ttimeoutlen=0
 
 "" auto format comments block
 set comments=sl:/**,mb:\ *,elx:\ */
@@ -85,6 +86,11 @@ imap jj <esc>
 map + :!touch 
 
 
+"---------------------------------------------------------------------
+" syntax highlighting
+"---------------------------------------------------------------------
+autocmd BufRead,BufNewFile *.make set filetype=dosini
+autocmd BufRead,BufNewFile *.info set filetype=dosini
 
 "---------------------------------------------------------------------
 " plugins

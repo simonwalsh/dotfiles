@@ -54,6 +54,9 @@ alias mkdir='mkdir -p'
 # Stop auto correcting good commands!
 alias vagrant='nocorrect vagrant'
 
+# Force tmux to work with 256 colors.
+alias tmux='tmux -2'
+
 # Archiving
 alias tarbz2='tar -jcvf'
 alias targz='tar -zcvf'
