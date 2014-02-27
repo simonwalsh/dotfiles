@@ -85,11 +85,11 @@ alias updateVim="curl http://j.mp/spf13-vim3 -L -o - | sh"
 
 # Use the existing VIM session if it exists
 # Or fallback to normal mvim if no argument is passed
-# alias mvim="mvim --remote-silent || mvim"
 function mvim() {
-  if [ "$1" != "" ]
-  then
-    command mvim --remote-silent $1
+  if [ -n "$1" ] ; then
+    command mvim --remote-silent "$@"
+  elif [ -n "$( command mvim --serverlist )" ] ; then
+    command mvim --remote-send ":call foreground()<CR>:enew<CR>:<BS>"
   else
     command mvim
   fi
@@ -107,7 +107,7 @@ function cleanVIM() {
   echo "Cleaning ~/.vimviews/"
   rm -Rf ~/.vimviews/*
   echo "Cleaning ~/.vimundo/"
-  rm -Rf ~/.vimundo/*
+  rm -Rf ~/.vimundm ~?.o/*
   echo "All done!"
 }
 
