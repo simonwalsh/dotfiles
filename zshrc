@@ -39,12 +39,12 @@ ZSH_THEME="ys"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Auto start tmux
-# ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART=true
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git zsh-syntax-highlighting)
+plugins=(tmux gitfast vagrant zsh-syntax-highlighting osx npm brew forklift)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -82,15 +82,10 @@ alias vimenc="vim -u ~/.vimrc.encrypted -x"
 # Update SPF13-VIM-3
 alias updateVim="curl http://j.mp/spf13-vim3 -L -o - | sh"
 
-# Faster Directory Browsing
-alias htdocs='/Applications/MAMP/htdocs/'
-
 
 # empty all VIM backup/swap/views directory (for when there's some problem
 # with arrow keys and...)
-function cleanVIM()
-{
-
+function cleanVIM() {
   # directories we'll empty are
   echo "Cleaning ~/.vimbackup/"
   rm -Rf ~/.vimbackup/*
@@ -101,23 +96,19 @@ function cleanVIM()
   echo "Cleaning ~/.vimundo/"
   rm -Rf ~/.vimundo/*
   echo "All done!"
-
 }
 
 
 # Random function
 # Pass in the style name and have a drink
-function minify()
-{
+function minify() {
   curl -X POST -s --data-urlencode "input@$1" http://www.cssminifier.com/raw > ${1%.css}.min.css
 }
 
 
 # Fix vagrant guest stuck at waiting for boot or waiting for graceful
 # shutdown.
-function forceVagrantShutdown()
-{
-
+function forceVagrantShutdown() {
   # List available VMs
   VBoxManage list runningvms
 
@@ -126,5 +117,4 @@ function forceVagrantShutdown()
   VBoxManage controlvm $RESP poweroff
 
   echo "VM powered off. You shoud now be able run `vagrant up` sucessfully."
-
 }
