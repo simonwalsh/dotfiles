@@ -36,3 +36,6 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Finder: show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
+
+# Enable Quicklook text selection
+defaults write com.apple.finder QLEnableTextSelection -bool TRUE

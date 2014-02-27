@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# May want to look into http://jmatthews.us/blog/2012/10/27/dots-pt1/
+# This would only take care of dotfiles, not installing other stuff.
+# Maybe also write a script to install all brew related stuff ?
+
 #
 # Backup dot files and symlink the new ones into location
 #
