@@ -54,7 +54,7 @@ set linespace=5
 set scrolloff=0
 
 " lower the timeout when typing leader key followed by a command
-set timeoutlen=400
+set timeoutlen=300
 set ttimeoutlen=0
 
 "" auto format comments block
