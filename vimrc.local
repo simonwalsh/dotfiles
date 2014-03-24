@@ -14,9 +14,9 @@
 set background=dark
 
 " Disable backup because CodeKit doesn't like 'em!
-set nobackup
-set nowritebackup
-set noswapfile
+" set nobackup
+" set nowritebackup
+" set noswapfile
 
 " F*** relative line numbers, you never know where you are.
 set nu
@@ -24,10 +24,10 @@ set nu
 " wrap long lines
 set nowrap
 " set linebreak
-set textwidth=0
-set wrapmargin=0
-set formatoptions+=qrn1
-set colorcolumn=81
+" set textwidth=0
+" set wrapmargin=0
+" set formatoptions+=qrn1
+set colorcolumn=80
 
 " indent at the same level of the previous line
 set smartindent
