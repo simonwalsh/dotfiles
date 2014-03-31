@@ -100,6 +100,27 @@ autocmd BufRead,BufNewFile *.info set filetype=dosini
 " change tComment shortcut to <Leader>c
 map <leader>c <c-_><c-_>
 
+" search current word with <leader>d
+nmap <silent> <leader>d <Plug>DashSearch
+
+let g:dash_map = {
+  \ 'ruby'       : 'rails',
+  \ 'python'     : 'python2',
+  \ 'html'     : 'fa',
+  \ 'html'     : 'wordpress',
+  \ 'php'     : 'wordpress',
+  \ 'javascript' : 'backbone',
+  \ 'javascript' : 'marionette',
+  \ 'javascript' : 'nodejs',
+  \ 'javascript' : 'angularjs',
+  \ 'javascript' : 'd3',
+  \ 'javascript' : 'grunt',
+  \ 'javascript' : 'meteor',
+  \ 'css' : 'bootstrap',
+  \ 'css' : 'compass',
+  \ 'css' : 'sass',
+  \ }
+
 " setting the author var for SnipMate
 let g:snips_author = 'Nicolas Duvieusart Dery <nddery@gmail.com>'
 
