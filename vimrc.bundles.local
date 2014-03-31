@@ -6,3 +6,5 @@ endif
 
 Bundle 'tomtom/tcomment_vim'
 Bundle 'thisivan/vim-bufexplorer'
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'

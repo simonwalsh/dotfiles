@@ -49,6 +49,9 @@ plugins=(tmux gitfast vagrant zsh-syntax-highlighting osx brew forklift)
 
 source $ZSH/oh-my-zsh.sh
 
+# # Uses MAMP PHP instead of system one.
+# alias php='/Applications/MAMP/bin/php/php5.4.10/bin/php'
+
 # Force mkdir to create intermediate dirs
 alias mkdir='mkdir -p'
 
