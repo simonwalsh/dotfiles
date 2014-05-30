@@ -1,8 +1,10 @@
 " In your .vimrc.bundles.local file"
 " list only the plugin groups you will use
 if !exists('g:spf13_bundle_groups')
-  let g:spf13_bundle_groups=['general', 'neocomplcache', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc']
+  let g:spf13_bundle_groups=['general', 'youcompleteme', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc']
 endif
+
+UnBundle 'myusuf3/numbers.vim'
 
 Bundle 'tomtom/tcomment_vim'
 Bundle 'thisivan/vim-bufexplorer'

@@ -104,21 +104,12 @@ map <leader>c <c-_><c-_>
 nmap <silent> <leader>d <Plug>DashSearch
 
 let g:dash_map = {
-  \ 'ruby'       : 'rails',
-  \ 'python'     : 'python2',
-  \ 'html'     : 'fa',
-  \ 'html'     : 'wordpress',
-  \ 'php'     : 'wordpress',
-  \ 'javascript' : 'backbone',
-  \ 'javascript' : 'marionette',
-  \ 'javascript' : 'nodejs',
-  \ 'javascript' : 'angularjs',
-  \ 'javascript' : 'd3',
-  \ 'javascript' : 'grunt',
-  \ 'javascript' : 'meteor',
-  \ 'css' : 'bootstrap',
-  \ 'css' : 'compass',
-  \ 'css' : 'sass',
+  \ 'ruby' :        'rails',
+  \ 'python' :      'python2',
+  \ 'html' :        ['fa', 'wordpress'],
+  \ 'php' :         'wordpress',
+  \ 'javascript' :  ['backbone', 'marionette', 'nodejs', 'angularjs', 'd3', 'grunt', 'meteor'],
+  \ 'css' :         ['bootstrap', 'compass', 'sass']
   \ }
 
 " setting the author var for SnipMate
@@ -130,6 +121,9 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " disable NERDTree from opening on startup
 let g:nerdtree_tabs_open_on_gui_startup=0
+
+" Set neocompletecache cache directory
+let g:neocomplcache_temporary_dir = "$HOME/.vim/tmp/neocomplcache"
 
 " Remove relative lines
 UnBundle 'myusuf3/numbers.vim'

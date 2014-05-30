@@ -87,6 +87,45 @@ alias vimenc="vim -u ~/.vimrc.encrypted -x"
 alias updateVim="curl http://j.mp/spf13-vim3 -L -o - | sh"
 
 
+# Dev functions - apache and mysql
+function startdev() {
+  startapache()
+  startmysql()
+}
+  function startmysql() {
+    mysql.server start
+  }
+  function startapache() {
+    sudo apachectl start
+  }
+
+function stopdev() {
+  stopapache()
+  stopmysql()
+}
+  function stopmysql() {
+    mysql.server stop
+  }
+  function stopapache() {
+    sudo apachectl stop
+  }
+
+function restartdev() {
+  restartapache()
+  restartmysql()
+}
+  function restartmysql() {
+    mysql.server restart
+  }
+  function restartartapache() {
+    sudo apachectl restart
+  }
+
+function startmemcache() {
+  memcached -m 8 -l 127.0.0.1 -p 11211 -d
+}
+
+
 # Use the existing VIM session if it exists
 # Or fallback to normal mvim if no argument is passed
 function mvim() {
@@ -111,7 +150,7 @@ function cleanVIM() {
   echo "Cleaning ~/.vimviews/"
   rm -Rf ~/.vimviews/*
   echo "Cleaning ~/.vimundo/"
-  rm -Rf ~/.vimundm ~?.o/*
+  rm -Rf ~/.vimundo/*
   echo "All done!"
 }
 
@@ -135,3 +174,5 @@ function forceVagrantShutdown() {
 
   echo "VM powered off. You shoud now be able run `vagrant up` sucessfully."
 }
+
+export PATH=/usr/local/share/python:$PATH
