@@ -89,8 +89,8 @@ alias updateVim="curl http://j.mp/spf13-vim3 -L -o - | sh"
 
 # Dev functions - apache and mysql
 function startdev() {
-  startapache()
-  startmysql()
+  startapache
+  startmysql
 }
   function startmysql() {
     mysql.server start
@@ -100,8 +100,8 @@ function startdev() {
   }
 
 function stopdev() {
-  stopapache()
-  stopmysql()
+  stopapache
+  stopmysql
 }
   function stopmysql() {
     mysql.server stop
@@ -111,8 +111,8 @@ function stopdev() {
   }
 
 function restartdev() {
-  restartapache()
-  restartmysql()
+  restartapache
+  restartmysql
 }
   function restartmysql() {
     mysql.server restart
