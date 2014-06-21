@@ -3,14 +3,7 @@ ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-# ZSH_THEME="agnoster"
 ZSH_THEME="ys"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -43,14 +36,9 @@ ZSH_TMUX_AUTOSTART=false
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# plugins=(tmux gitfast vagrant zsh-syntax-highlighting osx npm brew forklift)
-plugins=(tmux gitfast vagrant zsh-syntax-highlighting osx brew forklift)
+plugins=(tmux gitfast vagrant zsh-syntax-highlighting osx brew)
 
 source $ZSH/oh-my-zsh.sh
-
-# # Uses MAMP PHP instead of system one.
-# alias php='/Applications/MAMP/bin/php/php5.4.10/bin/php'
 
 # Force mkdir to create intermediate dirs
 alias mkdir='mkdir -p'
@@ -85,6 +73,9 @@ alias vimenc="vim -u ~/.vimrc.encrypted -x"
 
 # Update SPF13-VIM-3
 alias updateVim="curl http://j.mp/spf13-vim3 -L -o - | sh"
+
+# Let's go to nom!
+alias nom='npm'
 
 
 # Dev functions - apache and mysql
