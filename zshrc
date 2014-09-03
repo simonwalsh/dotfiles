@@ -77,6 +77,9 @@ alias updateVim="curl http://j.mp/spf13-vim3 -L -o - | sh"
 # Let's go to nom!
 alias nom='npm'
 
+# Correctly update all brewed packages
+alias upbrewed="brew update && brew upgrade `brew outdated`"
+
 
 # Dev functions - apache and mysql
 function startdev() {
