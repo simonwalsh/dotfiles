@@ -80,9 +80,6 @@ alias brewUpdateAll="brew update && brew upgrade `brew outdated`"
 # Let's go to nom!
 alias nom='npm'
 
-# Correctly update all brewed packages
-alias upbrewed="brew update && brew upgrade `brew outdated`"
-
 
 # Dev functions - apache and mysql
 function startdev() {
