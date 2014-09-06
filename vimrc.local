@@ -123,7 +123,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:nerdtree_tabs_open_on_gui_startup=0
 
 " Set neocompletecache cache directory
-let g:neocomplcache_temporary_dir = "$HOME/.vim/tmp/neocomplcache"
+let g:neocomplcache_temporary_dir="$HOME/.vim/tmp/neocomplcache"
 
 " Remove relative lines
 UnBundle 'myusuf3/numbers.vim'
