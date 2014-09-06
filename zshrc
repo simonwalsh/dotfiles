@@ -74,6 +74,9 @@ alias vimenc="vim -u ~/.vimrc.encrypted -x"
 # Update SPF13-VIM-3
 alias updateVim="curl http://j.mp/spf13-vim3 -L -o - | sh"
 
+# Update Brew packages (all)
+alias brewUpdateAll="brew update && brew upgrade `brew outdated`"
+
 # Let's go to nom!
 alias nom='npm'
 
