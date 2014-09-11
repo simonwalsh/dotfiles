@@ -72,7 +72,7 @@ alias yesterday="git log --since '1 day ago' --oneline --author nddery@gmail.com
 alias vimenc="vim -u ~/.vimrc.encrypted -x"
 
 # Update SPF13-VIM-3
-alias updateVim="curl http://j.mp/spf13-vim3 -L -o - | sh"
+alias updateVim="h <(curl https://j.mp/spf13-vim3 -L)"
 
 # Update Brew packages (all)
 alias brewUpdateAll="brew update && brew upgrade `brew outdated`"
