@@ -1,52 +1,77 @@
 #!/bin/bash
-
-# May want to look into http://jmatthews.us/blog/2012/10/27/dots-pt1/
-# This would only take care of dotfiles, not installing other stuff.
-# Maybe also write a script to install all brew related stuff ?
-
-#
-# Backup dot files and symlink the new ones into location
-#
-
-dest=~
 source=`pwd`
-bak=$source.bak
+bck_dir=$source.bck
 
-# list of files/folders to symlink
-# files="bash_profile vimrc.bundles.local vimrc.encrypted vimrc.local xvimrc tmux.conf"
-files="zshrc vimrc.bundles.local vimrc.encrypted vimrc.local xvimrc tmux.conf"
 
-# Backup everything
-echo "Creating a backup of files"
-mkdir -p $bak
-for file in $files; do
-  if [ -f $dest/.$file ]
+G='\x1B[0;32m' # Green
+C='\x1B[0;36m' # Cyan
+NC='\x1B[0m' # No Color
+
+
+# Backing up dotfiles
+dotfiles="zshrc vimrc.bundles.local vimrc.encrypted vimrc.local xvimrc tmux.conf"
+echo -e "${C}Creating a backup of your dotfiles${NC}"
+mkdir -p $bck_dir/dotfiles
+for dotfile_bck in $dotfiles; do
+  if [ -f ~/.$dotfile_bck ]
   then
     # Follow symlink
-    cp -LR $dest/.$file $bak/$file
+    cp -LR ~/.$dotfile_bck $bck_dir/dotfiles/$dotfile_bck
     # And remove the file
-    rm $dest/.$file
+    rm ~/.$dotfile_bck
   fi
 done
 
-# Install zsh and oh-my-zsh
-brew install zsh
+# And now symlink new dotfiles into place.
+echo -e "${C}Copying new dotfiles into place${NC}"
+for dotfile in $dotfiles; do
+  ln -s $source/dotfiles/$dotfile ~/.$dotfile
+done
 
+
+# Backing up  preferences
+preferences="com.apple.Terminal.plist"
+echo -e "${C}Creating a backup of your preferences${NC}"
+mkdir -p $bck_dir/preferences
+for preference_bck in $preferences; do
+  if [ -f ~/Library/Preferences/$preference_bck ]
+  then
+    # Follow symlink
+    cp -LR ~/Library/Preferences/$preference_bck $bck_dir/preferences/$preference_bck
+    # And remove the file
+    rm ~/Library/Preferences/$preference_bck
+  fi
+done
+
+# And now symlink new preferences into place.
+echo -e "${C}Copying new preferences into place${NC}"
+for preference in $preferences; do
+  cp -LR ~/Library/Preferences/$preference $bck_dir/preferences/$preference
+  ln -s $source/preferences/$preference ~/Library/Preferences/$preference
+done
+
+
+# Install zsh
+hash zsh &> /dev/null
+if [ $? -eq 1 ]; then
+  echo -e "${C}Installing zsh${NC}"
+  brew install zsh
+else
+  echo -e "${C}zsh already installed${NC}"
+fi
+
+# Install oh-my-zsh
 cd ~
 if [ ! -d .oh-my-zsh ]
 then
-  git  clone git@github.com:robbyrussell/oh-my-zsh.git .oh-my-zsh
-fi
+  echo -e "${C}Installing oh-my-zsh${NC}"
 
-# And now symlink new files into place.
-echo "Copying new files into place."
-for file in $files; do
-  ln -s $source/$file $dest/.$file
-done
+  git clone git@github.com:robbyrussell/oh-my-zsh.git .oh-my-zsh
 
-if [ ! -f ~/.zshrc ]
-then
-  cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+  if [ ! -f ~/.zshrc ]
+  then
+    cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+  fi
 fi
 
 # Install zsh-syntax-highlighting
@@ -58,22 +83,44 @@ fi
 cd plugins
 if [ ! -d zsh-syntax-highlighting ]
 then
+  echo -e "${C}Enabling zsh-syntax-highlighting${NC}"
   git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 fi
 
-# Install spf13-vim
-# curl http://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
-
 # Install tmux
-brew install tmux
+hash tmux &> /dev/null
+if [ $? -eq 1 ]; then
+  echo -e  "${C}Installing tmux${NC}"
+  brew install tmux
+else
+  echo -e "${C}tmux already installed${NC}"
+fi
 
 # Install reattach-to-user-namespace
-brew install reattach-to-user-namespace
+hash reattach-to-user-namespace &> /dev/null
+if [ $? -eq 1 ]; then
+  echo -e "${C}Installing reattach-to-user-namespace${NC}"
+  brew install reattach-to-user-namespace
+else
+  echo -e "${C}reattach-to-user-namespace already installed${NC}"
+fi
+
+# Set sensible OSX defaults.
+echo -e "${C}Setting sensible OSX defaults${NC}"
+sh $source/osx/defaults
 
 # Change shell to zsh if not already like so
 if [ $(echo $SHELL) != '/bin/zsh' ]
 then
+  echo -e "${C} Switching your login shell to use zsh${NC}"
   chsh -s /bin/zsh
 fi
 
-echo "All done!"
+echo ""
+echo -e "${G}----------------------------------------------------------------------"
+echo ""
+echo "                              All done!"
+echo "You may want to install SPF13-Vim3 by running the 'updateVim' command."
+echo ""
+echo -e "----------------------------------------------------------------------${NC}"
+echo ""
