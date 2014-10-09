@@ -21,10 +21,9 @@ set background=dark
 " F*** relative line numbers, you never know where you are.
 set nu
 
-" wrap long lines
+" DON'T wrap long lines
 set nowrap
 " set linebreak
-" set textwidth=0
 " set wrapmargin=0
 " set formatoptions+=qrn1
 set colorcolumn=80
@@ -64,6 +63,12 @@ set comments=sl:/**,mb:\ *,elx:\ */
 au BufRead *.php set ft=php.html
 au BufNewFile *.php set ft=php.html
 
+set iskeyword+=.                    " '.' is an end of word designator
+set iskeyword+=#                    " '#' is an end of word designator
+set iskeyword+=-                    " '-' is an end of word designator
+
+set ignorecase                  " Case insensitive search
+set smartcase                   " Case sensitive when uc present
 
 
 "---------------------------------------------------------------------
@@ -77,6 +82,15 @@ au BufNewFile *.php set ft=php.html
   nmap <Leader>a: :Tabularize /:\zs<CR>
   vmap <Leader>a: :Tabularize /:\zs<CR>
 "endif
+
+" Easier moving in tabs and windows
+" spf13 version had "_" for vertical split, which caused it them to minize
+" upon switching buffer, I don't like that behavior.
+let g:spf13_no_easyWindows = 1
+map <C-J> <C-W>j<C-W>
+map <C-K> <C-W>k<C-W>
+map <C-L> <C-W>l<C-W>_
+map <C-H> <C-W>h<C-W>_
 
 " remap <space> to : (colon)
 nmap <space> :
@@ -93,6 +107,12 @@ map + :!touch
 "---------------------------------------------------------------------
 autocmd BufRead,BufNewFile *.make set filetype=dosini
 autocmd BufRead,BufNewFile *.info set filetype=dosini
+
+
+"---------------------------------------------------------------------
+" Formatting
+"---------------------------------------------------------------------
+" autocmd FileType php.html autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
 
 "---------------------------------------------------------------------
 " plugins
@@ -152,8 +172,8 @@ if has('gui_running')
   " remove the left scrollbar
   set guioptions-=L
 
-  " wrap long lines
-  set textwidth=80
+  " DON'T wrap long lines
+  set textwidth=0
 
   " full screen takes all horizontal space
   set fuopt+=maxhorz " grow to maximum horizontal width on entering fullscreen mode
