@@ -84,13 +84,13 @@ set smartcase                   " Case sensitive when uc present
 "endif
 
 " Easier moving in tabs and windows
-" spf13 version had "_" for vertical split, which caused it them to minize
-" upon switching buffer, I don't like that behavior.
+" spf13 version had "_" for vertical/horizontal splits, which caused them to
+" minize upon switching buffer, I didn't like that behavior.
 let g:spf13_no_easyWindows = 1
 map <C-J> <C-W>j<C-W>
 map <C-K> <C-W>k<C-W>
-map <C-L> <C-W>l<C-W>_
-map <C-H> <C-W>h<C-W>_
+map <C-L> <C-W>l<C-W>
+map <C-H> <C-W>h<C-W>
 
 " remap <space> to : (colon)
 nmap <space> :
