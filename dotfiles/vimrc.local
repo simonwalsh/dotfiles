@@ -101,6 +101,8 @@ imap jj <esc>
 " map + to :!touch (to touch a file)
 map + :!touch 
 
+cabbrev fastgrep noautocmd vimgrep
+
 
 "---------------------------------------------------------------------
 " syntax highlighting
