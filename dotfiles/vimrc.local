@@ -99,7 +99,7 @@ nmap <space> :
 imap jj <esc>
 
 " map + to :!touch (to touch a file)
-map + :!touch 
+map + :!touch
 
 cabbrev fastgrep noautocmd vimgrep
 
@@ -116,6 +116,7 @@ autocmd BufRead,BufNewFile *.handlebars set filetype=html
 " Formatting
 "---------------------------------------------------------------------
 " autocmd FileType php.html autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
+autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
 
 "---------------------------------------------------------------------
 " plugins
@@ -138,9 +139,9 @@ let g:dash_map = {
 " setting the author var for SnipMate
 let g:snips_author = 'Nicolas Duvieusart Dery <nddery@gmail.com>'
 
-" <TAB>: completion. 
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>" 
-" imap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>" 
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" imap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " disable NERDTree from opening on startup
 let g:nerdtree_tabs_open_on_gui_startup=0
