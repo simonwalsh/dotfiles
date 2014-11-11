@@ -109,6 +109,7 @@ cabbrev fastgrep noautocmd vimgrep
 "---------------------------------------------------------------------
 autocmd BufRead,BufNewFile *.make set filetype=dosini
 autocmd BufRead,BufNewFile *.info set filetype=dosini
+autocmd BufRead,BufNewFile *.handlebars set filetype=html
 
 
 "---------------------------------------------------------------------
