@@ -49,6 +49,9 @@ alias updateVim="sh <(curl https://j.mp/spf13-vim3 -L)"
 # Update Brew packages (all)
 alias brewUpdateAll="brew update && brew upgrade `brew outdated`"
 
+# Launch iOS simulator
+alias simulator="open /Applications/Xcode.app/Contents/Developer/Applications/iOS\ Simulator.app"
+
 # Let's go to nom!
 alias nom='npm'
 
