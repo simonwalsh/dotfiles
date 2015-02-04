@@ -165,7 +165,7 @@ if has('gui_running')
   set columns=90
 
   " automatically enable mouse usage
-  " set mouse=a
+  set mouse=a
 
   " remove the toolbar
   set guioptions-=T
