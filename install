@@ -9,7 +9,7 @@ NC='\x1B[0m' # No Color
 
 
 # Backing up dotfiles
-dotfiles="zshrc vimrc.bundles.local vimrc.encrypted vimrc.local xvimrc tmux.conf"
+dotfiles="zshrc vimrc.before.local vimrc.bundles.local vimrc.encrypted vimrc.local xvimrc tmux.conf"
 echo -e "${C}Creating a backup of your dotfiles${NC}"
 mkdir -p $bck_dir/dotfiles
 for dotfile_bck in $dotfiles; do

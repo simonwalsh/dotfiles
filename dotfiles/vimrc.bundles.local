@@ -1,13 +1,15 @@
-" In your .vimrc.bundles.local file"
-" list only the plugin groups you will use
-if !exists('g:spf13_bundle_groups')
-  let g:spf13_bundle_groups=['general', 'youcompleteme', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc']
-endif
-
 UnBundle 'myusuf3/numbers.vim'
+UnBundle 'beyondwords/vim-twig' " At least use evidens/vim-twig ?
+UnBundle 'briancollins/vim-jst'
+UnBundle 'tpope/vim-haml'
+UnBundle 'mattn/gist-vim'
+UnBundle 'tpope/vim-commentary'
+UnBundle 'mhinz/vim-signify'
 
+Bundle 'airblade/vim-gitgutter'
 Bundle 'darfink/vim-plist'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'thisivan/vim-bufexplorer'
-Bundle 'rizzatti/funcoo.vim'
+" Bundle 'tomtom/tcomment_vim'
+Bundle 'jlanzarotta/bufexplorer'
+" Bundle 'thisivan/vim-bufexplorer'
+" Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
