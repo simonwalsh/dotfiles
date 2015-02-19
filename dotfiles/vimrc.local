@@ -122,8 +122,7 @@ autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | ca
 " plugins
 "---------------------------------------------------------------------
 " change tComment shortcut to <Leader>c
-map <leader>c <leader>cc
-" map <leader>c <c-_><c-_>
+map <leader>c <c-_><c-_>
 
 " search current word with <leader>d
 nmap <silent> <leader>d <Plug>DashSearch
