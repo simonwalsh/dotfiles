@@ -4,6 +4,7 @@ UnBundle 'beyondwords/vim-twig'
 UnBundle 'briancollins/vim-jst'
 UnBundle 'tpope/vim-haml'
 UnBundle 'mattn/gist-vim'
+UnBundle 'scrooloose/nerdcommenter'
 UnBundle 'tpope/vim-commentary'
 UnBundle 'mhinz/vim-signify'
 
