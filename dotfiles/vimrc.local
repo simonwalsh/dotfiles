@@ -63,6 +63,10 @@ set comments=sl:/**,mb:\ *,elx:\ */
 au BufRead *.php set ft=php.html
 au BufNewFile *.php set ft=php.html
 
+" threat .pp file as ruby
+au BufRead *.pp set ft=ruby
+au BufNewFile *.pp set ft=ruby
+
 set iskeyword+=.                    " '.' is an end of word designator
 set iskeyword+=#                    " '#' is an end of word designator
 set iskeyword+=-                    " '-' is an end of word designator
