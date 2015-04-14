@@ -48,7 +48,7 @@ set expandtab
 set softtabstop=2
 
 " set the space between each line to 5
-set linespace=5
+set linespace=0
 
 set scrolloff=0
 
@@ -162,7 +162,8 @@ if has('gui_running')
   set transparency=5
 
   " set the font and font-size to use
-  set guifont=Liberation\ Mono\ for\ Powerline:h18
+  " set guifont=Literation\ Mono\ Powerline:h18
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h18
 
   " set default width (lines) and height (columns)
   set lines=120
