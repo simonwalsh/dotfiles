@@ -137,8 +137,6 @@ function forceVagrantShutdown() {
   echo "VM powered off. You shoud now be able run `vagrant up` sucessfully."
 }
 
-export PATH=/usr/local/share/python:$PATH
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
