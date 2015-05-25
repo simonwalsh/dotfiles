@@ -51,6 +51,15 @@ for preference in $preferences; do
 done
 
 
+# Install bar
+hash bar &> /dev/null
+if [ $? -eq 1 ]; then
+  echo -e "${C}Installing bar${NC}"
+  brew install bar
+else
+  echo -e "${C}bar already installed${NC}"
+fi
+
 # Install zsh
 hash zsh &> /dev/null
 if [ $? -eq 1 ]; then
