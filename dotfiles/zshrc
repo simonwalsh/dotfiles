@@ -47,7 +47,7 @@ alias vimenc="vim -u ~/.vimrc.encrypted -x"
 alias updateVim="sh <(curl https://j.mp/spf13-vim3 -L)"
 
 # Update Brew packages (all)
-alias brewUpdateAll="brew update --all && brew upgrade `brew outdated`"
+alias brewUpdateAll="brew update --all && brew upgrade `brew outdated` && brew cleanup && brew cask cleanup"
 
 # Launch iOS simulator
 alias simulator="open /Applications/Xcode.app/Contents/Developer/Applications/iOS\ Simulator.app"

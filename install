@@ -7,9 +7,14 @@ G='\x1B[0;32m' # Green
 C='\x1B[0;36m' # Cyan
 NC='\x1B[0m' # No Color
 
-
-# Backing up dotfiles
 dotfiles="zshrc vimrc.before.local vimrc.bundles.local vimrc.encrypted vimrc.local xvimrc tmux.conf"
+preferences="com.apple.Terminal.plist"
+brew="bar zsh tmux reattach-to-user-namespace caskroom/cask/brew-cask"
+
+
+############
+# Dotfiles #
+############
 echo -e "${C}Creating a backup of your dotfiles${NC}"
 mkdir -p $bck_dir/dotfiles
 for dotfile_bck in $dotfiles; do
@@ -29,8 +34,9 @@ for dotfile in $dotfiles; do
 done
 
 
-# Backing up  preferences
-preferences="com.apple.Terminal.plist"
+###############
+# Preferences #
+###############
 echo -e "${C}Creating a backup of your preferences${NC}"
 mkdir -p $bck_dir/preferences
 for preference_bck in $preferences; do
@@ -51,14 +57,26 @@ for preference in $preferences; do
 done
 
 
-# Install zsh
-hash zsh &> /dev/null
-if [ $? -eq 1 ]; then
-  echo -e "${C}Installing zsh${NC}"
-  brew install zsh
-else
-  echo -e "${C}zsh already installed${NC}"
-fi
+#########
+# Brew #
+########
+echo -e "${C}Brewing stuff${NC}"
+for brew in $brews; do
+  hash $brew &> /dev/null
+  if [ $? -eq 1 ]; then
+    echo -e "${C}Brewing $brew${NC}"
+    brew install $brew
+  else
+    echo -e "${C}$brew already brewed${NC}"
+  fi
+done
+# https://github.com/sindresorhus/quick-look-plugins
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
+
+
+##########
+# Others #
+#########
 
 # Install oh-my-zsh
 cd ~
@@ -85,24 +103,6 @@ if [ ! -d zsh-syntax-highlighting ]
 then
   echo -e "${C}Enabling zsh-syntax-highlighting${NC}"
   git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
-fi
-
-# Install tmux
-hash tmux &> /dev/null
-if [ $? -eq 1 ]; then
-  echo -e  "${C}Installing tmux${NC}"
-  brew install tmux
-else
-  echo -e "${C}tmux already installed${NC}"
-fi
-
-# Install reattach-to-user-namespace
-hash reattach-to-user-namespace &> /dev/null
-if [ $? -eq 1 ]; then
-  echo -e "${C}Installing reattach-to-user-namespace${NC}"
-  brew install reattach-to-user-namespace
-else
-  echo -e "${C}reattach-to-user-namespace already installed${NC}"
 fi
 
 # Set sensible OSX defaults.
