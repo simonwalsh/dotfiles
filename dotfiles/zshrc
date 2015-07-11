@@ -137,6 +137,9 @@ function forceVagrantShutdown() {
   echo "VM powered off. You shoud now be able run `vagrant up` sucessfully."
 }
 
+# Use homebrew php on the command line..
+export PATH="$(brew --prefix homebrew/php/php54)/bin:$PATH"
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
