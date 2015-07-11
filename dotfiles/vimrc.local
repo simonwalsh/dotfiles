@@ -67,9 +67,9 @@ au BufNewFile *.php set ft=php.html
 au BufRead *.pp set ft=ruby
 au BufNewFile *.pp set ft=ruby
 
-set iskeyword+=.                    " '.' is an end of word designator
-set iskeyword+=#                    " '#' is an end of word designator
-set iskeyword+=-                    " '-' is an end of word designator
+set isk+=.                    " '.' is an end of word designator
+set isk+=#                    " '#' is an end of word designator
+set isk+=-                    " '-' is an end of word designator
 
 set ignorecase                  " Case insensitive search
 set smartcase                   " Case sensitive when uc present
@@ -127,6 +127,9 @@ autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | ca
 "---------------------------------------------------------------------
 " change tComment shortcut to <Leader>c
 map <leader>c <c-_><c-_>
+
+" map <leader>f0 to unfold all code
+nmap <leader>f0 :set foldlevel=100<CR>
 
 " search current word with <leader>d
 nmap <silent> <leader>d <Plug>DashSearch
