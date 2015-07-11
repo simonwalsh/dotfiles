@@ -58,37 +58,33 @@ alias nom='npm'
 
 # Dev functions - apache and mysql
 function startdev() {
-  startapache
-  startmysql
+  echo "* mysql.server start"
+  mysql.server start
+  echo "* sudo apachectl start"
+  sudo apachectl start
 }
-  function startmysql() {
-    mysql.server start
-  }
-  function startapache() {
-    sudo apachectl start
-  }
 
 function stopdev() {
-  stopapache
-  stopmysql
+  echo "* mysql.server stop"
+  mysql.server stop
+  echo "* sudo apachectl stop"
+  sudo apachectl stop
 }
-  function stopmysql() {
-    mysql.server stop
-  }
-  function stopapache() {
-    sudo apachectl stop
-  }
 
 function restartdev() {
-  restartapache
-  restartmysql
+  echo "*  mysql.server restart"
+  mysql.server restart
+  echo "* sudo apachectl restart"
+  sudo apachectl restart
 }
-  function restartmysql() {
-    mysql.server restart
-  }
-  function restartartapache() {
-    sudo apachectl restart
-  }
+
+function startmongo() {
+  launchctl load /usr/local/opt/mongodb/homebrew.mxcl.mongodb.plist
+}
+
+function stopmongo() {
+  launchctl unload /usr/local/opt/mongodb/homebrew.mxcl.mongodb.plist
+}
 
 function startmemcache() {
   memcached -m 8 -l 127.0.0.1 -p 11211 -d
