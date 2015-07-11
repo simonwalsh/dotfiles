@@ -87,14 +87,26 @@ set smartcase                   " Case sensitive when uc present
   vmap <Leader>a: :Tabularize /:\zs<CR>
 "endif
 
-" Easier moving in tabs and windows
-" spf13 version had "_" for vertical/horizontal splits, which caused them to
-" minize upon switching buffer, I didn't like that behavior.
-let g:spf13_no_easyWindows = 1
-map <C-J> <C-W>j<C-W>
-map <C-K> <C-W>k<C-W>
-map <C-L> <C-W>l<C-W>
-map <C-H> <C-W>h<C-W>
+if has('gui_running')
+  " Easier moving in tabs and windows
+  " spf13 version had "_" for vertical/horizontal splits, which caused them to
+  " minize upon switching buffer, I didn't like that behavior.
+  let g:spf13_no_easyWindows = 1
+  map <C-J> <C-W>j<C-W>
+  map <C-K> <C-W>k<C-W>
+  map <C-L> <C-W>l<C-W>
+  map <C-H> <C-W>h<C-W>
+else
+  let g:tmux_navigator_no_mappings = 1
+
+  nnoremap <silent> <C-H> :TmuxNavigateLeft<cr>
+  nnoremap <silent> <C-J> :TmuxNavigateDown<cr>
+  nnoremap <silent> <C-K> :TmuxNavigateUp<cr>
+  nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
+  " nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+
+  let g:tmux_navigator_save_on_switch = 1
+endif
 
 " remap <space> to : (colon)
 nmap <space> :
