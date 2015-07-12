@@ -112,7 +112,7 @@ endif
 nmap <space> :
 "
 " remap jj to <esc>
-imap jj <esc>
+inoremap jj <esc>
 
 " map + to :!touch (to touch a file)
 map + :!touch
