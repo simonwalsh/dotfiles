@@ -9,7 +9,7 @@ NC='\x1B[0m' # No Color
 
 dotfiles="zshrc vimrc.before.local vimrc.bundles.local vimrc.encrypted vimrc.local xvimrc tmux.conf"
 preferences="com.apple.Terminal.plist"
-brew="bar zsh tmux reattach-to-user-namespace caskroom/cask/brew-cask Caskroom/cask/easysimbl"
+brew="bar zsh tmux reattach-to-user-namespace caskroom/cask/brew-cask"
 
 
 ############
