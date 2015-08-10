@@ -136,6 +136,9 @@ function forceVagrantShutdown() {
 # Use homebrew php on the command line..
 export PATH="$(brew --prefix homebrew/php/php54)/bin:$PATH"
 
+# boost ulimit
+ulimit -S -n 2048
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
