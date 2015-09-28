@@ -1,0 +1,8 @@
+[user]
+	name = Nicolas Duvieusart Déry
+	email = nddery@gmail.com
+[core]
+	editor = /usr/local/bin/vim
+	excludesfile = /Users/nddery/.gitignore
+[push]
+	default = simple

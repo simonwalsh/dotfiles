@@ -7,7 +7,7 @@ G='\x1B[0;32m' # Green
 C='\x1B[0;36m' # Cyan
 NC='\x1B[0m' # No Color
 
-dotfiles="zshrc vimrc.before.local vimrc.bundles.local vimrc.encrypted vimrc.local xvimrc tmux.conf"
+dotfiles="zshrc vimrc.before.local vimrc.bundles.local vimrc.encrypted vimrc.local xvimrc tmux.conf gitconfig gitignore"
 preferences="com.apple.Terminal.plist"
 brew="bar zsh tmux reattach-to-user-namespace caskroom/cask/brew-cask"
 
