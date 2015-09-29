@@ -67,9 +67,10 @@ au BufNewFile *.php set ft=php.html
 au BufRead *.pp set ft=ruby
 au BufNewFile *.pp set ft=ruby
 
-set isk+=.                    " '.' is an end of word designator
-set isk+=#                    " '#' is an end of word designator
-set isk+=-                    " '-' is an end of word designator
+" - instead of + to add a word designator...
+set isk-=.                    " '.' is an end of word designator
+set isk-=#                    " '#' is an end of word designator
+set isk-=-                    " '-' is an end of word designator
 
 set ignorecase                  " Case insensitive search
 set smartcase                   " Case sensitive when uc present
