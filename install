@@ -8,7 +8,6 @@ C='\x1B[0;36m' # Cyan
 NC='\x1B[0m' # No Color
 
 dotfiles="zshrc vimrc.before.local vimrc.bundles.local vimrc.encrypted vimrc.local xvimrc tmux.conf gitconfig gitignore"
-preferences="com.apple.Terminal.plist"
 brew="bar zsh tmux reattach-to-user-namespace caskroom/cask/brew-cask"
 
 
@@ -34,29 +33,6 @@ for dotfile in $dotfiles; do
 done
 
 
-###############
-# Preferences #
-###############
-echo -e "${C}Creating a backup of your preferences${NC}"
-mkdir -p $bck_dir/preferences
-for preference_bck in $preferences; do
-  if [ -f ~/Library/Preferences/$preference_bck ]
-  then
-    # Follow symlink
-    cp -LR ~/Library/Preferences/$preference_bck $bck_dir/preferences/$preference_bck
-    # And remove the file
-    rm ~/Library/Preferences/$preference_bck
-  fi
-done
-
-# And now symlink new preferences into place.
-echo -e "${C}Copying new preferences into place${NC}"
-for preference in $preferences; do
-  cp -LR ~/Library/Preferences/$preference $bck_dir/preferences/$preference
-  ln -s $source/preferences/$preference ~/Library/Preferences/$preference
-done
-
-
 #########
 # Brew #
 ########
@@ -72,21 +48,6 @@ for brew in $brews; do
 done
 # https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
-
-
-################
-# Mouse Term + #
-################
-if [ ! -f ~/Library/Application\ Support/SIMBL/Plugins/MouseTerm.bundle ]; then
-  echo -e "${C}Enabling mouse support for Terminal.app${NC}"
-  git clone git@github.com:saitoha/mouseterm-plus.git
-  cd mouseterm-plus
-  make && make install
-  cd ..
-  rm -rf mouseterm-plus
-else
-  echo -e "${C}Mouse support for Terminal.app is already enabled${NC}"
-fi
 
 
 ##########
