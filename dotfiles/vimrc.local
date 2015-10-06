@@ -134,6 +134,8 @@ autocmd BufRead,BufNewFile *.handlebars set filetype=html
 "---------------------------------------------------------------------
 " autocmd FileType php.html autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
 autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
+" http://calebthompson.io/crontab-and-vim-sitting-in-a-tree/
+autocmd filetype crontab setlocal nobackup nowritebackup
 
 "---------------------------------------------------------------------
 " plugins
