@@ -106,6 +106,6 @@ echo -e "${G}-------------------------------------------------------------------
 echo ""
 echo "                              All done!"
 echo "You may want to install SPF13-Vim3 by running the 'updateVim' command."
-echo ""
+echo "See: http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html"
 echo -e "----------------------------------------------------------------------${NC}"
 echo ""
