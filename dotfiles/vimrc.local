@@ -181,7 +181,7 @@ if has('gui_running')
 
   " set the font and font-size to use
   " set guifont=Literation\ Mono\ Powerline:h18
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h17
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h16
 
   " set default width (lines) and height (columns)
   set lines=120

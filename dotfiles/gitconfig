@@ -6,3 +6,5 @@
 	excludesfile = ~/.gitignore
 [push]
 	default = simple
+[init]
+	templatedir = ~/.git_template
