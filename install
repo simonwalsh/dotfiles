@@ -8,7 +8,7 @@ C='\x1B[0;36m' # Cyan
 NC='\x1B[0m' # No Color
 
 dotfiles="zshrc vimrc.before.local vimrc.bundles.local vimrc.encrypted vimrc.local xvimrc tmux.conf gitconfig gitignore"
-brew="bar zsh tmux reattach-to-user-namespace caskroom/cask/brew-cask"
+brew="bar zsh tmux reattach-to-user-namespace ctags caskroom/cask/brew-cask"
 
 
 ############

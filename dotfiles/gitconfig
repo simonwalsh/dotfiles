@@ -3,6 +3,6 @@
 	email = nddery@gmail.com
 [core]
 	editor = /usr/local/bin/vim
-	excludesfile = /Users/nddery/.gitignore
+	excludesfile = ~/.gitignore
 [push]
 	default = simple
