@@ -140,6 +140,11 @@ function forceVagrantShutdown() {
 # Use homebrew php on the command line..
 export PATH="$(brew --prefix homebrew/php/php54)/bin:$PATH"
 
+# Use homebrew rbenv
+export RBENV_ROOT="$(brew --prefix rbenv)"
+export GEM_HOME="$(brew --prefix)/opt/gems"
+export GEM_PATH="$(brew --prefix)/opt/gems"
+
 # boost ulimit
 ulimit -S -n 2048
 
