@@ -55,6 +55,9 @@ alias simulator="open /Applications/Xcode.app/Contents/Developer/Applications/iO
 # Let's go to nom!
 alias nom='npm'
 
+# exuberant ctags ftw
+alias ctags="`brew --prefix`/bin/ctags"
+
 
 # Dev functions - apache and mysql
 function startdev() {
