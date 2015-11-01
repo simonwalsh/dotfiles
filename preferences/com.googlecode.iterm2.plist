@@ -1168,7 +1168,7 @@
 	<key>HotkeyChar</key>
 	<integer>96</integer>
 	<key>HotkeyCode</key>
-	<integer>10</integer>
+	<integer>50</integer>
 	<key>HotkeyModifiers</key>
 	<integer>1048840</integer>
 	<key>IRMemory</key>
@@ -1184,7 +1184,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/git/dotfiles/preferences</string>
+	<string>~/Desktop</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 459}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -1217,10 +1217,14 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>929 37 445 77 0 0 1440 877 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>269 313 606 456 0 0 1280 800 </string>
+	<string>238 417 606 456 0 0 1440 877 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>410 364 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1280 800 0 0 1280 777 </string>
+	<string>0 4 890 552 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1952,11 +1956,17 @@
 		</dict>
 	</array>
 	<key>NoSyncLastTipTime</key>
-	<real>466630947.47672999</real>
+	<real>468093203.54026502</real>
+	<key>NoSyncNeverRemindPrefsChangesCopy</key>
+	<true/>
 	<key>NoSyncPermissionToShowTip</key>
 	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>465948313.14262301</real>
+	<real>465865998.416013</real>
+	<key>NoSyncTimeOfLastPromo</key>
+	<real>458484803.08859301</real>
+	<key>NoSyncTimeOfLastPromoDownload</key>
+	<real>465677298.62050003</real>
 	<key>NoSyncTipsToNotShow</key>
 	<array>
 		<string>000</string>
@@ -1964,7 +1974,6 @@
 		<string>0001</string>
 		<string>0002</string>
 		<string>0003</string>
-		<string>0004</string>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
@@ -2012,7 +2021,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/nddery/git/dotfiles/preferences</string>
+	<string>/Users/nddery/Git/dotfiles/preferences</string>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -2030,9 +2039,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-10-15T19:42:26Z</date>
-	<key>SUSendProfileInfo</key>
-	<false/>
+	<date>2015-11-01T17:53:22Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -2074,6 +2081,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>2.9.20151006-nightly</string>
+	<string>2.9.20151031-nightly</string>
 </dict>
 </plist>
