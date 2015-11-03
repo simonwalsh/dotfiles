@@ -1,11 +1,14 @@
 Nicolas Duvieusart Déry's dotfiles, and more.
 
+Heavily inspired by https://github.com/alrra/dotfiles
+
 ### Installation
 
 ```
 $ cd dotfiles
-$ chmod 755 scripts/install
-$ ./scripts/install
+$ ./install
 ```
 
-That is it.
+and follow instruction.
+
+That's it.
