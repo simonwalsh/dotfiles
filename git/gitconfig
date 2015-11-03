@@ -1,0 +1,35 @@
+[user]
+	name = Nicolas Duvieusart Déry
+	email = nddery@gmail.com
+
+[core]
+	editor = /usr/local/bin/vim
+	excludesfile = ~/.gitignore
+
+[push]
+	default = simple
+
+[init]
+	templatedir = ~/.git_template
+
+[alias]
+	ctags = !.git/hooks/ctags
+	c = commit -am
+	p = push
+	s = status -s
+	df = diff --color --color-words --abbrev
+	l = log --pretty=format:"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]" --decorate --date=short'
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	co = checkout
+
+	# Show the diff between the latest commit and the current state
+	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+
+[color]
+	ui = always
+
+[merge]
+	tool = opendiff
+
+[help]
+	autocorrect = 1

@@ -140,8 +140,14 @@ function forceVagrantShutdown() {
   echo "VM powered off. You shoud now be able run `vagrant up` sucessfully."
 }
 
+# Where a node version managed by `n` installed
+export N_PREFIX="/usr/local"
+
 # Use homebrew php on the command line..
 export PATH="$(brew --prefix homebrew/php/php54)/bin:$PATH"
+
+# Install casks in /Application instead of ~/Applications
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Use homebrew rbenv
 export RBENV_ROOT="$(brew --prefix rbenv)"
