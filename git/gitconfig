@@ -13,6 +13,7 @@
 	templatedir = ~/.git_template
 
 [alias]
+	fix = "!f() { ${EDITOR} `git diff --name-only`; }; f"
 	ctags = !.git/hooks/ctags
 	c = commit -am
 	p = push
