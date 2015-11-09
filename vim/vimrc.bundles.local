@@ -19,5 +19,5 @@ Bundle 'laktek/distraction-free-writing-vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'jelera/vim-javascript-syntax'
 " Need to go to it's install dir. and run `npm install...`
-Bundle 'https://github.com/ternjs/tern_for_vim'
+Bundle 'ternjs/tern_for_vim'
 Bundle 'mxw/vim-jsx'

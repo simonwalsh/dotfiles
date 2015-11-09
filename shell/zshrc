@@ -43,9 +43,6 @@ alias yesterday="git log --since '1 day ago' --oneline --author nddery@gmail.com
 # Start VIM in "encrypted" mode
 alias vimenc="vim -u ~/.vimrc.encrypted -x"
 
-# Update SPF13-VIM-3
-alias updateVim="sh <(curl https://j.mp/spf13-vim3 -L)"
-
 # Update Brew packages (all)
 alias brewUpdateAll="brew update --all && brew upgrade `brew outdated` && brew cleanup && brew cask cleanup"
 
@@ -58,6 +55,11 @@ alias nom='npm'
 # exuberant ctags ftw
 alias ctags="`brew --prefix`/bin/ctags"
 
+# Update SPF13-VIM-3
+function updateVim() {
+  sh <(curl https://j.mp/spf13-vim3 -L)
+  cd ~/.vim/bundle/tern_for_vim && npm install
+}
 
 # Dev functions - apache and mysql
 function startdev() {

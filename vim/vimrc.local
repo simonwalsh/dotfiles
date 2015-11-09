@@ -158,6 +158,9 @@ let g:dash_map = {
   \ 'css' :         ['bootstrap', 'compass', 'sass']
   \ }
 
+" jsx syntax highlighting in .js files
+let g:jsx_ext_required = 0
+
 " setting the author var for SnipMate
 let g:snips_author = 'Nicolas Duvieusart Dery <nddery@gmail.com>'
 

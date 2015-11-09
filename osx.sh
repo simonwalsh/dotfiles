@@ -22,6 +22,9 @@ defaults write com.apple.dock mru-spaces -bool false
 # Set a really fast key repeat.
 defaults write NSGlobalDomain KeyRepeat -int 0
 
+# Disable the "accent menu" so key repeat works as expected...
+defaults write -g ApplePressAndHoldEnabled -bool false
+
 # Disable Resume system-wide
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 
