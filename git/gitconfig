@@ -13,12 +13,13 @@
 	templatedir = ~/.git_template
 
 [alias]
+	fix = "!f() { ${EDITOR} `git diff --name-only`; }; f"
 	ctags = !.git/hooks/ctags
 	c = commit -am
 	p = push
 	s = status -s
 	df = diff --color --color-words --abbrev
-	l = log --pretty=format:"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]" --decorate --date=short'
+	l = log --pretty=format:"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]" --decorate --date=short
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 	co = checkout
 
