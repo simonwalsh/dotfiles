@@ -17,6 +17,13 @@ main() {
     fi
   fi
 
+  # Install Honukai oh-my-zsh theme
+  cd ~/.oh-my-zsh/themes/
+  if [ ! -f honukai.zsh-theme ]
+  then
+    execute "curl -O https://raw.githubusercontent.com/oskarkrawczyk/honukai-iterm-zsh/master/honukai.zsh-theme" "Downloaded Honukai oh-my-zsh theme"
+  fi
+
   # Install zsh-syntax-highlighting
   cd ~/.oh-my-zsh/custom/
   if [ ! -d plugins ]

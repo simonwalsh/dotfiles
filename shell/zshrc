@@ -3,7 +3,7 @@ ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-ZSH_THEME="ys"
+ZSH_THEME="honukai"
 
 # Auto start tmux
 ZSH_TMUX_AUTOSTART=false
