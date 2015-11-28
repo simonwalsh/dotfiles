@@ -7,12 +7,17 @@ declare -a PACKAGES=(
   'firefox'
   'google-chrome'
 
+  'iterm2'
+  'android-file-transfer'
+  'spotify'
+  'vlc'
   'disk-inventory-x'
   'dropbox'
   # screen dimming thing
   'flux'
   'limechat'
   'utorrent'
+  'laullon-gitx'
   'caffeine'
 
   'qlcolorcode'

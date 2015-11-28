@@ -61,6 +61,12 @@ function updateVim() {
   cd ~/.vim/bundle/tern_for_vim && npm install
 }
 
+# .mov to animated .gif!
+# parameters are input output
+function movtogif() {
+  ffmpeg -i $1 -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=20 > $2
+}
+
 # Dev functions - apache and mysql
 function startdev() {
   echo "* mysql.server start"

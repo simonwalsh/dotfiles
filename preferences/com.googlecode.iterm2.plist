@@ -1509,7 +1509,7 @@
 	<key>HotkeyChar</key>
 	<integer>96</integer>
 	<key>HotkeyCode</key>
-	<integer>50</integer>
+	<integer>10</integer>
 	<key>HotkeyModifiers</key>
 	<integer>1048840</integer>
 	<key>IRMemory</key>
@@ -1525,7 +1525,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Downloads</string>
+	<string>~/git/dotfiles/preferences</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 459}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -1558,14 +1558,12 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>601 434 445 77 0 0 1440 877 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>238 417 606 456 0 0 1440 877 </string>
+	<string>269 319 606 456 0 0 1280 800 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>410 382 620 392 0 0 1440 900 </string>
+	<string>330 307 620 392 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 4 890 552 0 0 1440 877 </string>
+	<string>0 4 890 552 0 0 1280 800 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -3157,17 +3155,11 @@
 		</dict>
 	</array>
 	<key>NoSyncLastTipTime</key>
-	<real>469077248.57765502</real>
-	<key>NoSyncNeverRemindPrefsChangesCopy</key>
-	<true/>
+	<real>469135471.52923697</real>
 	<key>NoSyncPermissionToShowTip</key>
 	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>465865998.416013</real>
-	<key>NoSyncTimeOfLastPromo</key>
-	<real>458484803.08859301</real>
-	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>465677298.62050003</real>
+	<real>465948313.14262301</real>
 	<key>NoSyncTipsToNotShow</key>
 	<array>
 		<string>000</string>
@@ -3177,6 +3169,15 @@
 		<string>0003</string>
 		<string>0004</string>
 		<string>0005</string>
+		<string>0006</string>
+		<string>0007</string>
+		<string>0008</string>
+		<string>0009</string>
+		<string>0010</string>
+		<string>0011</string>
+		<string>0012</string>
+		<string>0013</string>
+		<string>0014</string>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
@@ -3224,7 +3225,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/nddery/Git/dotfiles/preferences</string>
+	<string>/Users/nddery/git/dotfiles/preferences</string>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -3233,16 +3234,20 @@
 	<integer>8</integer>
 	<key>RightOption</key>
 	<integer>3</integer>
+	<key>SUAutomaticallyUpdate</key>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/nightly.xml</string>
+	<string>https://iterm2.com/appcasts/testing3.xml</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-11-13T03:14:07Z</date>
+	<date>2015-11-13T15:04:18Z</date>
+	<key>SUSendProfileInfo</key>
+	<false/>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -3284,6 +3289,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>2.9.20151112-nightly</string>
+	<string>2.9.20151111</string>
 </dict>
 </plist>
