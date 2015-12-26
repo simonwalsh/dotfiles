@@ -73,8 +73,8 @@ function startdev() {
   mysql.server start
   echo "* sudo apachectl start"
   sudo apachectl start
-  echo "* startmongo"
-  startmongo
+  # echo "* startmongo"
+  # startmongo
 }
 
 function stopdev() {
