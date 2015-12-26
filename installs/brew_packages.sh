@@ -35,6 +35,9 @@ declare -a PACKAGES=(
   'mysql'
   'php54'
   'php54-mongo'
+
+  'ffmpeg'
+  'gifsicle'
 )
 
 main() {

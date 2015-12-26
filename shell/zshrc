@@ -82,8 +82,8 @@ function stopdev() {
   mysql.server stop
   echo "* sudo apachectl stop"
   sudo apachectl stop
-  echo "* stopmongo"
-  stopmongo
+  # echo "* stopmongo"
+  # stopmongo
 }
 
 function restartdev() {
