@@ -152,7 +152,7 @@ function forceVagrantShutdown() {
 export N_PREFIX="/usr/local"
 
 # Use homebrew php on the command line..
-export PATH="$(brew --prefix homebrew/php/php54)/bin:$PATH"
+export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 
 # Install casks in /Application instead of ~/Applications
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -162,8 +162,13 @@ export RBENV_ROOT="$(brew --prefix rbenv)"
 export GEM_HOME="$(brew --prefix)/opt/gems"
 export GEM_PATH="$(brew --prefix)/opt/gems"
 
+export VISUAL='mvim -f'
+
 # boost ulimit
 ulimit -S -n 2048
+
+# Load .zshrc.local if available, overrides other settings.
+[[ -r ~/.zshrc.local ]] && . ~/.zshrc.local
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"

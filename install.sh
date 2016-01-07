@@ -12,7 +12,7 @@ printf '\n'
 
 if answer_is_yes; then
   print_info 'Install/Update Xcode'
-  ./install/xcode.sh
+  ./installs/xcode.sh
   print_in_green '\n  ---\n\n'
 fi
 
@@ -23,7 +23,7 @@ printf '\n'
 
 if answer_is_yes; then
   print_info 'Install/Update homebrew'
-  ./install/homebrew.sh
+  ./installs/homebrew.sh
   print_in_green '\n  ---\n\n'
 fi
 
@@ -34,7 +34,7 @@ printf '\n'
 
 if answer_is_yes; then
   print_info 'Install/Update node'
-  ./install/node.sh
+  ./installs/node.sh
   print_in_green '\n  ---\n\n'
 fi
 
@@ -45,7 +45,7 @@ printf '\n'
 
 if answer_is_yes; then
   print_info 'Install/Update Zsh'
-  ./install/zsh.sh
+  ./installs/zsh.sh
   print_in_green '\n  ---\n\n'
 fi
 
@@ -56,7 +56,7 @@ printf '\n'
 
 if answer_is_yes; then
   print_info 'Install/Update brew packages'
-  ./install/brew_packages.sh
+  ./installs/brew_packages.sh
   print_in_green '\n  ---\n\n'
 fi
 
@@ -67,7 +67,7 @@ printf '\n'
 
 if answer_is_yes; then
   print_info 'Install/Update brew casks'
-  ./install/brew_casks.sh
+  ./installs/brew_casks.sh
   print_in_green '\n  ---\n\n'
 fi
 
@@ -78,7 +78,7 @@ printf '\n'
 
 if answer_is_yes; then
   print_info 'Install/Update misc'
-  ./install/misc.sh
+  ./installs/misc.sh
   print_in_green '\n  ---\n\n'
 fi
 
@@ -89,7 +89,7 @@ printf '\n'
 
 if answer_is_yes; then
   print_info 'Symlink dotfiles into place'
-  ./symlink-setup.sh
+  ./symlinks.sh
   print_in_green '\n  ---\n\n'
 fi
 
