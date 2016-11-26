@@ -12,14 +12,12 @@
 "---------------------------------------------------------------------
 " Tell VIM that we will be using a dark background
 set background=dark
-
-" Disable backup because CodeKit doesn't like 'em!
-" set nobackup
-" set nowritebackup
-" set noswapfile
+" set background=light
 
 " F*** relative line numbers, you never know where you are.
-set nu
+" set nu
+" They actually could be cool..!
+set relativenumber
 
 " DON'T wrap long lines
 set nowrap
@@ -41,11 +39,12 @@ set tabstop=2
 " when pressing <TAB>, uses the amount of softtabstop if set
 set expandtab
 
-" tabs are tabs, not spaces
-" set noexpandtab
-
 " affect what happens when pressing <TAB> or <BS>
 set softtabstop=2
+
+" make the tab key (in insert mode) insert spaces to go to the next indent of the
+" next tabstop when the cursor is at the beginning of a line
+set smarttab
 
 " set the space between each line to 5
 set linespace=0
@@ -53,19 +52,11 @@ set linespace=0
 set scrolloff=0
 
 " lower the timeout when typing leader key followed by a command
-set timeoutlen=300
-set ttimeoutlen=0
+" set timeoutlen=300
+" set ttimeoutlen=0
 
-"" auto format comments block
+" auto format comments block
 set comments=sl:/**,mb:\ *,elx:\ */
-
-" make HTML snippets available in PHP
-au BufRead *.php set ft=php.html
-au BufNewFile *.php set ft=php.html
-
-" threat .pp file as ruby
-au BufRead *.pp set ft=ruby
-au BufNewFile *.pp set ft=ruby
 
 " - instead of + to add a word designator...
 set isk-=.                    " '.' is an end of word designator
@@ -79,14 +70,26 @@ set smartcase                   " Case sensitive when uc present
 "---------------------------------------------------------------------
 " KEY MAPPING
 "---------------------------------------------------------------------
+nnoremap <silent> <D-r> :CtrlPMixed<CR>
+nmap <Leader>f :CtrlPLine<CR>
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+" let g:ctrlp_extensions = ['mixed', 'buffertag', 'tag', 'line', 'dir']
+let g:ctrlp_dotfiles = 0
+let g:ctrlp_buftag_ctags_bin    = '/usr/local/bin/ctags'
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.?(atom|git|hg|svn|vim|vimbackup|vimswap|vimundo|viewviews|sass-cache|cache|node_module)$',
+  \ 'file': '\v\.(exe|so|dll|pyc)$',
+  \ }
 
 " Tabular mapping
-"if exists(":Tabularize")
+if exists(":Tabularize")
   nmap <Leader>a= :Tabularize /=<CR>
   vmap <Leader>a= :Tabularize /=<CR>
   nmap <Leader>a: :Tabularize /:\zs<CR>
   vmap <Leader>a: :Tabularize /:\zs<CR>
-"endif
+endif
 
 if has('gui_running')
   " Easier moving in tabs and windows
@@ -111,7 +114,7 @@ endif
 
 " remap <space> to : (colon)
 nmap <space> :
-"
+
 " remap jj to <esc>
 inoremap jj <esc>
 
@@ -124,9 +127,19 @@ cabbrev fastgrep noautocmd vimgrep
 "---------------------------------------------------------------------
 " syntax highlighting
 "---------------------------------------------------------------------
-autocmd BufRead,BufNewFile *.make set filetype=dosini
-autocmd BufRead,BufNewFile *.info set filetype=dosini
-autocmd BufRead,BufNewFile *.handlebars set filetype=html
+au BufRead,BufNewFile *.make set ft=dosini
+au BufRead,BufNewFile *.info set ft=dosini
+au BufRead,BufNewFile *.ctp set ft=php.html
+au BufRead,BufNewFile *.twig set ft=html
+au BufRead,BufNewFile *.handlebars set ft=html
+au BufRead,BufNewFile *.pp set ft=ruby
+
+
+"---------------------------------------------------------------------
+" Per filetype
+"---------------------------------------------------------------------
+autocmd FileType php setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType php.html setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 
 "---------------------------------------------------------------------
@@ -137,26 +150,27 @@ autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | ca
 " http://calebthompson.io/crontab-and-vim-sitting-in-a-tree/
 autocmd filetype crontab setlocal nobackup nowritebackup
 
+
 "---------------------------------------------------------------------
 " plugins
 "---------------------------------------------------------------------
 " change tComment shortcut to <Leader>c
-map <leader>c <c-_><c-_>
+ map <leader>c <c-_><c-_>
 
-" map <leader>f0 to unfold all code
-nmap <leader>f0 :set foldlevel=100<CR>
+" map <leader>f- to unfold all code
+nmap <leader>f- :set foldlevel=100<CR>
 
 " search current word with <leader>d
 nmap <silent> <leader>d <Plug>DashSearch
 
-let g:dash_map = {
-  \ 'ruby' :        'rails',
-  \ 'python' :      'python2',
-  \ 'html' :        ['fa', 'wordpress'],
-  \ 'php' :         'wordpress',
-  \ 'javascript' :  ['backbone', 'marionette', 'nodejs', 'angularjs', 'd3', 'grunt', 'meteor'],
-  \ 'css' :         ['bootstrap', 'compass', 'sass']
-  \ }
+" let g:dash_map = {
+"   \ 'ruby' :        'rails',
+"   \ 'python' :      'python2',
+"   \ 'html' :        ['fa', 'wordpress'],
+"   \ 'php' :         'wordpress',
+"   \ 'javascript' :  ['backbone', 'marionette', 'nodejs', 'angularjs', 'd3', 'grunt', 'meteor'],
+"   \ 'css' :         ['bootstrap', 'compass', 'sass']
+"   \ }
 
 " jsx syntax highlighting in .js files
 let g:jsx_ext_required = 0
@@ -168,30 +182,68 @@ let g:snips_author = 'Nicolas Duvieusart Dery <nddery@gmail.com>'
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " imap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-" disable NERDTree from opening on startup
-let g:nerdtree_tabs_open_on_gui_startup=0
+" " disable NERDTree from opening on startup
+" let g:nerdtree_tabs_open_on_gui_startup = 0
 
-" Set neocompletecache cache directory
-" let g:neocomplcache_temporary_dir="$HOME/.vim/tmp/neocomplcache"
+" " Set neocompletecache cache directory
+" " let g:neocomplcache_temporary_dir="$HOME/.vim/tmp/neocomplcache"
 
+" Do not break on first line
+" Vdebug
+let g:vdebug_keymap = {
+  \ 'run_to_cursor' : '<Down>',
+  \ 'step_over' : '<Up>',
+  \ 'step_into' : '<Left>',
+  \ 'step_out' : '<Right>'
+  \ }
+"  \ 'run' : '<Leader>\',
+"  \ 'close' : 'q',
+"  \ 'detach' : 'x',
+"  \ 'set_breakpoint' : '<Leader>p',
+"  \ 'eval_visual' : '<Leader>e'
+
+let g:vdebug_options = {
+  \ 'break_on_open' : 0
+  \ }
+
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_error_sign = {
+  \ 'text': '>>',
+  \ 'texthl': 'ErrorMsg',
+  \ }
+autocmd! BufWritePost * Neomake
+" let g:syntastic_javascript_checkers=['eslint']
+" let g:syntastic_javascript_standard_exec = 'semistandard'
+" autocmd bufwritepost *.js silent !eslint %
+set autoread
 
 "---------------------------------------------------------------------
 " IF HAS GUI RUNNING (instead of using .gvimrc)
 "---------------------------------------------------------------------
 if has('gui_running')
+  " let g:hybrid_custom_term_colors = 1
+  " let g:hybrid_reduced_contrast = 1
+  " colorscheme hybrid
+  " colorscheme hybrid_material
+
+  let g:solarized_contrast = "high" "high, normal or low
+  let g:solarized_visibility= "high"
+  colorscheme solarized
+
   " Transparency is way cool
   set transparency=5
 
   " set the font and font-size to use
   " set guifont=Literation\ Mono\ Powerline:h18
   set guifont=Source\ Code\ Pro\ for\ Powerline:h16
+  " set guifont=Hack:h16
 
   " set default width (lines) and height (columns)
   set lines=120
   set columns=90
-
-  " automatically enable mouse usage
-  set mouse=a
+"
+"   " automatically enable mouse usage
+"   set mouse=a
 
   " remove the toolbar
   set guioptions-=T
@@ -214,7 +266,7 @@ if has('gui_running')
   " macmenu &Edit.Find.Find\.\.\. key=<nop> " free up Command-F
   map <leader>fu :set invfu
 else
-  color solarized
+  colorscheme grb256
 
   " disable errorbells and enable visual bell
   set noeb vb t_vb=

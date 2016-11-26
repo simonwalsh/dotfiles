@@ -25,12 +25,29 @@
 
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+	lastchange = log -p --follow -n 1
+
+	# Common mistakes I make...
+	checout = checkout
+	chekcout = checkout
+	cehckout = checkout
 
 [color]
 	ui = always
 
-[merge]
-	tool = opendiff
+# [merge]
+# 	tool = kdiff3
 
 [help]
 	autocorrect = 1
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+
+[diff]
+    tool = opendiff
+[difftool]
+    prompt = false
+[difftool "opendiff"]
+    cmd = /usr/bin/opendiff \"$LOCAL\" \"$REMOTE\" -merge \"$MERGED\" | cat

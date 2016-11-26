@@ -47,13 +47,17 @@ alias vimenc="vim -u ~/.vimrc.encrypted -x"
 alias brewUpdateAll="brew update --all && brew upgrade `brew outdated` && brew cleanup && brew cask cleanup"
 
 # Launch iOS simulator
-alias simulator="open /Applications/Xcode.app/Contents/Developer/Applications/iOS\ Simulator.app"
+alias simulator="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
+
 
 # Let's go to nom!
 alias nom='npm'
 
 # exuberant ctags ftw
 alias ctags="`brew --prefix`/bin/ctags"
+
+# Remove those pesky .DS_Store files.
+alias rmds="find . -name '*.DS_Store' -type f -delete"
 
 # Update SPF13-VIM-3
 function updateVim() {
@@ -65,6 +69,12 @@ function updateVim() {
 # parameters are input output
 function movtogif() {
   ffmpeg -i $1 -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=20 > $2
+}
+
+function movtocentral() {
+  FILE=$(basename $1)
+  rsync -avP $1 central@192.168.1.100:/Data/Public/Movies
+  ssh central@192.168.1.100 'sudo chmod -R 0777 /Data/Public/Movies/$FILE'
 }
 
 # Dev functions - apache and mysql
@@ -152,15 +162,19 @@ function forceVagrantShutdown() {
 export N_PREFIX="/usr/local"
 
 # Use homebrew php on the command line..
-export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+
+# yarn.
+export PATH="$PATH:$HOME/.yarn/bin"
 
 # Install casks in /Application instead of ~/Applications
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Use homebrew rbenv
-export RBENV_ROOT="$(brew --prefix rbenv)"
-export GEM_HOME="$(brew --prefix)/opt/gems"
-export GEM_PATH="$(brew --prefix)/opt/gems"
+# export RBENV_ROOT="$(brew --prefix rbenv)"
+# export GEM_HOME="$(brew --prefix)/opt/gems"
+# export GEM_PATH="$(brew --prefix)/opt/gems"
+eval "$(rbenv init -)"
 
 export VISUAL='mvim -f'
 

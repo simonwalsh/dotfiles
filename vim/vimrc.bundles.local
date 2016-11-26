@@ -1,4 +1,6 @@
-UnBundle 'myusuf3/numbers.vim'
+" We'll be using neomake, with it's awesome async flow!
+UnBundle 'scrooloose/syntastic'
+" UnBundle 'myusuf3/numbers.vim'
  " At least use evidens/vim-twig ?
 UnBundle 'beyondwords/vim-twig'
 UnBundle 'briancollins/vim-jst'
@@ -7,7 +9,14 @@ UnBundle 'mattn/gist-vim'
 UnBundle 'scrooloose/nerdcommenter'
 UnBundle 'tpope/vim-commentary'
 UnBundle 'mhinz/vim-signify'
+" I don't want to do this but it makes large php files unusable...
+UnBundle 'gorodinskiy/vim-coloresque'
 
+" Breaks tComment - see https://github.com/tomtom/tcomment_vim/issues/145
+UnBundle 'luochen1990/rainbow'
+
+Bundle 'neomake/neomake'
+Bundle 'joonty/vdebug'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'darfink/vim-plist'
 Bundle 'tomtom/tcomment_vim'
@@ -21,3 +30,8 @@ Bundle 'jelera/vim-javascript-syntax'
 " Need to go to it's install dir. and run `npm install...`
 Bundle 'ternjs/tern_for_vim'
 Bundle 'mxw/vim-jsx'
+Bundle 'mbadran/headlights'
+Bundle 'posva/vim-vue'
+
+" Colorschemes
+Bundle 'gosukiwi/vim-atom-dark'
