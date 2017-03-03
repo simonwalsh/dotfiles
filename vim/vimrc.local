@@ -66,13 +66,17 @@ set isk-=-                    " '-' is an end of word designator
 set ignorecase                  " Case insensitive search
 set smartcase                   " Case sensitive when uc present
 
+" set ttyfast
+
 
 "---------------------------------------------------------------------
 " KEY MAPPING
 "---------------------------------------------------------------------
 nnoremap <silent> <D-r> :CtrlPMixed<CR>
+nnoremap <silent> <C-f> :CtrlPMixed<CR>
 nmap <Leader>f :CtrlPLine<CR>
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+let g:ctrlp_working_path_mode = 0
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " let g:ctrlp_extensions = ['mixed', 'buffertag', 'tag', 'line', 'dir']
 let g:ctrlp_dotfiles = 0
@@ -112,6 +116,9 @@ else
   let g:tmux_navigator_save_on_switch = 1
 endif
 
+nmap <Leader>t :TestNearest<cr>
+nmap <Leader>T :TestFile<cr>
+
 " remap <space> to : (colon)
 nmap <space> :
 
@@ -133,6 +140,10 @@ au BufRead,BufNewFile *.ctp set ft=php.html
 au BufRead,BufNewFile *.twig set ft=html
 au BufRead,BufNewFile *.handlebars set ft=html
 au BufRead,BufNewFile *.pp set ft=ruby
+
+" http://vim.wikia.com/wiki/Fix_syntax_highlighting
+noremap <F11> <Esc>:syntax sync fromstart<CR>
+inoremap <F11> <C-o>:syntax sync fromstart<CR>
 
 
 "---------------------------------------------------------------------
@@ -230,7 +241,6 @@ colorscheme solarized
 " IF HAS GUI RUNNING (instead of using .gvimrc)
 "---------------------------------------------------------------------
 if has('gui_running')
-
   " Transparency is way cool
   set transparency=5
 
