@@ -22,8 +22,6 @@
         Plug 'altercation/vim-colors-solarized'
         Plug 'myusuf3/numbers.vim'
         Plug 'gorodinskiy/vim-coloresque'
-        " Breaks tComment - see https://github.com/tomtom/tcomment_vim/issues/145
-        Plug 'luochen1990/rainbow'
         Plug 'neomake/neomake'
         Plug 'janko-m/vim-test'
         Plug 'airblade/vim-gitgutter'
