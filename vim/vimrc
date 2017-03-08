@@ -296,7 +296,6 @@ if gitroot != ''
 endif
 " }
 
-
 " TmuxNavigate {
 let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_save_on_switch = 1
@@ -402,6 +401,12 @@ endif
 " TagBar {
 if isdirectory(expand("~/.vim/plugged/tagbar/"))
     nnoremap <silent> <leader>tt :TagbarToggle<CR>
+endif
+"}
+"
+" Close tag {
+if isdirectory(expand("~/.vim/plugged/vim-closetag/"))
+    let g:closetag_filenames = "*.html,*.ctp"
 endif
 "}
 
