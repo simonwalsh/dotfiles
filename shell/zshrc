@@ -59,12 +59,6 @@ alias ctags="`brew --prefix`/bin/ctags"
 # Remove those pesky .DS_Store files.
 alias rmds="find . -name '*.DS_Store' -type f -delete"
 
-# Update SPF13-VIM-3
-function updateVim() {
-  sh <(curl https://j.mp/spf13-vim3 -L)
-  cd ~/.vim/bundle/tern_for_vim && npm install
-}
-
 # .mov to animated .gif!
 # parameters are input output
 function movtogif() {
