@@ -10,10 +10,8 @@ declare -a FILES_TO_SYMLINK=(
   'git/gitconfig'
   'git/gitignore'
 
-  'vim/vimrc.before.local'
-  'vim/vimrc.bundles.local'
+  'vim/vimrc'
   'vim/vimrc.encrypted'
-  'vim/vimrc.local'
   'vim/xvimrc'
 )
 

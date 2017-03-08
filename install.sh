@@ -95,13 +95,4 @@ fi
 
 ###
 
-ask_for_confirmation 'Update SPF-vim3 ?'
-printf '\n'
-
-if answer_is_yes; then
-  execute "sh <(curl https://j.mp/spf13-vim3 -L)" "Updated SPF-vim3"
-fi
-
-###
-
 print_success "Installation finished"
