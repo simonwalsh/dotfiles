@@ -16,6 +16,7 @@ declare -a PACKAGES=(
   # generic colouriser  http://kassiopeia.juls.savba.sk/~garabik/software/grc/
   'grc'
 
+  'the_silver_searcher'
   'ack'
   'git'
   'gnupg'
@@ -28,13 +29,12 @@ declare -a PACKAGES=(
   'android-platform-tools'
   'ctags'
   'vim:--override-system-vi'
-  'macvim:--override-system-vim'
 
   'composer'
   'mongodb'
   'mysql'
-  'php54'
-  'php54-mongo'
+  'php70'
+  'php70-mongo'
 
   'ffmpeg'
   'gifsicle'
