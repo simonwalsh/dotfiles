@@ -388,7 +388,7 @@ endif
 "
 " Close tag {
 if isdirectory(expand("~/.vim/plugged/vim-closetag/"))
-    let g:closetag_filenames = "*.html,*.ctp"
+    let g:closetag_filenames = "*.html,*.ctp,*.js"
 endif
 "}
 
