@@ -67,8 +67,8 @@ function movtogif() {
 
 function movtocentral() {
   FILE=$(basename $1)
-  rsync -avP $1 central@192.168.1.100:/Data/Public/Movies
-  ssh central@192.168.1.100 'sudo chmod -R 0777 /Data/Public/Movies/$FILE'
+  rsync -avP $1 central@192.168.0.101:/Data/Public/Movies
+  ssh central@192.168.0.101 'sudo chmod -R 0777 /Data/Public/Movies/$FILE'
 }
 
 # Dev functions - apache and mysql
