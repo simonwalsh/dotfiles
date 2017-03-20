@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source '../utils.sh'
+source utils.sh
 
 main() {
   # Install tmux-vim-select-pane

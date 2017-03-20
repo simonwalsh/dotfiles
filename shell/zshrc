@@ -47,7 +47,8 @@ alias vimenc="vim -u ~/.vimrc.encrypted -x"
 alias brewUpdateAll="brew update --all && brew upgrade `brew outdated` && brew cleanup && brew cask cleanup"
 
 # Launch iOS simulator
-alias simulator="open /Applications/Xcode.app/Contents/Developer/Applications/iOS\ Simulator.app"
+alias simulator="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
+
 
 # Let's go to nom!
 alias nom='npm'
@@ -55,16 +56,19 @@ alias nom='npm'
 # exuberant ctags ftw
 alias ctags="`brew --prefix`/bin/ctags"
 
-# Update SPF13-VIM-3
-function updateVim() {
-  sh <(curl https://j.mp/spf13-vim3 -L)
-  cd ~/.vim/bundle/tern_for_vim && npm install
-}
+# Remove those pesky .DS_Store files.
+alias rmds="find . -name '*.DS_Store' -type f -delete"
 
 # .mov to animated .gif!
 # parameters are input output
 function movtogif() {
   ffmpeg -i $1 -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=20 > $2
+}
+
+function movtocentral() {
+  FILE=$(basename $1)
+  rsync -avP $1 central@192.168.0.101:/Data/Public/Movies
+  ssh central@192.168.0.101 'sudo chmod -R 0777 /Data/Public/Movies/$FILE'
 }
 
 # Dev functions - apache and mysql
@@ -152,7 +156,10 @@ function forceVagrantShutdown() {
 export N_PREFIX="/usr/local"
 
 # Use homebrew php on the command line..
-export PATH="$(brew --prefix homebrew/php/php54)/bin:$PATH"
+export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+
+# yarn.
+export PATH="$PATH:$HOME/.yarn/bin"
 
 export PATH="$PATH:$HOME/.yarn/bin"
 
@@ -160,12 +167,18 @@ export PATH="$PATH:$HOME/.yarn/bin"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Use homebrew rbenv
-export RBENV_ROOT="$(brew --prefix rbenv)"
-export GEM_HOME="$(brew --prefix)/opt/gems"
-export GEM_PATH="$(brew --prefix)/opt/gems"
+# export RBENV_ROOT="$(brew --prefix rbenv)"
+# export GEM_HOME="$(brew --prefix)/opt/gems"
+# export GEM_PATH="$(brew --prefix)/opt/gems"
+eval "$(rbenv init -)"
+
+export VISUAL='mvim -f'
 
 # boost ulimit
 ulimit -S -n 2048
+
+# Load .zshrc.local if available, overrides other settings.
+[[ -r ~/.zshrc.local ]] && . ~/.zshrc.local
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source '../utils.sh'
+source utils.sh
 
 # package:options
 declare -a PACKAGES=(
@@ -33,6 +33,9 @@ main() {
   local i=''
   local -a parts=()
   local package=''
+
+  # Install casks in /Application instead of ~/Applications
+  export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
   execute "brew update --all" "Updated Homebrew"
   execute "brew upgrade `brew outdated`" "Upgraded outdated packages"

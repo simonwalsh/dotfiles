@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source '../utils.sh'
+source utils.sh
 
 main() {
   brew_install "zsh" "zsh"

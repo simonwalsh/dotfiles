@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source '../utils.sh'
+source utils.sh
 
 main() {
   if ! cmd_exists 'brew'; then

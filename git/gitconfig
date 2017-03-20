@@ -1,36 +1,57 @@
 [user]
-	name = Nicolas Duvieusart Déry
-	email = nddery@gmail.com
+name = Nicolas Duvieusart Déry
+email = nddery@gmail.com
 
 [core]
-	editor = /usr/local/bin/vim
-	excludesfile = ~/.gitignore
+editor = /usr/local/bin/vim
+excludesfile = ~/.gitignore
 
 [push]
-	default = simple
+default = simple
 
 [init]
-	templatedir = ~/.git_template
+templatedir = ~/.git_template
 
 [alias]
-	fix = "!f() { ${EDITOR} `git diff --name-only`; }; f"
-	ctags = !.git/hooks/ctags
-	c = commit -am
-	p = push
-	s = status -s
-	df = diff --color --color-words --abbrev
-	l = log --pretty=format:"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]" --decorate --date=short
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-	co = checkout
+fix = "!f() { ${EDITOR} `git diff --name-only`; }; f"
+ctags = !.git/hooks/ctags
+c = commit -am
+p = push
+s = status -s
+df = diff --color --color-words --abbrev
+l = log --pretty=format:"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]" --decorate --date=short
+lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+co = checkout
 
-	# Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+# Show the diff between the latest commit and the current state
+d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+lastchange = log -p --follow -n 1
+
+# Common mistakes I make...
+checout = checkout
+chekcout = checkout
+cehckout = checkout
 
 [color]
-	ui = always
+ui = always
 
 [merge]
-	tool = opendiff
+tool = vimdiff
+conflictstyle = diff3
+
+[mergetool]
+prompt = false
 
 [help]
-	autocorrect = 1
+autocorrect = 1
+[filter "lfs"]
+clean = git-lfs clean %f
+smudge = git-lfs smudge %f
+required = true
+
+[diff]
+tool = opendiff
+[difftool]
+prompt = false
+[difftool "opendiff"]
+cmd = /usr/bin/opendiff \"$LOCAL\" \"$REMOTE\" -merge \"$MERGED\" | cat

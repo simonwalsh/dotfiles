@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source '../utils.sh'
+source utils.sh
 
 main() {
   if ! xcode-select --print-path &> /dev/null; then
