@@ -2,7 +2,7 @@
 
 " Plug {
     call plug#begin()
-    " General {
+    " " General {
         Plug 'tpope/vim-sensible'
         Plug 'mileszs/ack.vim'
         Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -29,7 +29,7 @@
         Plug 'flazz/vim-colorschemes'
         Plug 'mbbill/undotree'
         Plug 'nathanaelkane/vim-indent-guides'
-        Plug 'vim-scripts/restore_view.vim'
+    "     Plug 'vim-scripts/restore_view.vim'
         Plug 'gcmt/wildfire.vim'
         Plug 'godlygeek/tabular'
         if executable('ctags')
@@ -72,12 +72,18 @@
     inoremap jj <esc>
 
     let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+    nmap <leader>fw :Ack <C-R><C-W><CR>
+    nmap <leader>ff :CtrlPMixed <C-R><C-W>
 
     let g:solarized_contrast = "high" "high, normal or low
     let g:solarized_visibility= "high"
     colorscheme solarized
 
     set mouse=a
+    " enable pane resize with the mouse inside of tmux
+    if &term =~ '^screen'
+        set ttymouse=xterm2
+    endif
     set background=dark
     " set nowrap
     set relativenumber
@@ -254,9 +260,9 @@ vnoremap > >gv
 " For when you forget to sudo.. Really Write the file.
 cmap w!! w !sudo tee % >/dev/null
 
-" Map <Leader>ff to display all lines with keyword under cursor
+" display all lines with keyword under cursor
 " and ask which one to jump to
-nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+nmap <Leader>fif [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 " }
 
 " Plugins {
@@ -359,24 +365,17 @@ let g:vim_json_syntax_conceal = 0
 
 " ctrlp {
 if isdirectory(expand("~/.vim/plugged/ctrlp.vim/"))
-    let g:ctrlp_clear_cache_on_exit = 0
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    " let g:ctrlp_clear_cache_on_exit = 0
     let g:ctrlp_dotfiles = 0
+    let g:ctrlp_max_files=0
     let g:ctrlp_custom_ignore = {
         \ 'dir':  '\v[\/]\.?(atom|git|hg|svn|vim|vimbackup|vimswap|vimundo|viewviews|sass-cache|cache|node_module)$',
         \ 'file': '\v\.(exe|so|dll|pyc)$',
     \ }
     nnoremap <silent> <C-f> :CtrlPMixed<CR>
-    nmap <Leader>f :CtrlPline<CR>
-
-    if executable('ag')
-        let s:ctrlp_fallback = 'ag %s --nocolor -l -g ""'
-    elseif executable('ack-grep')
-        let s:ctrlp_fallback = 'ack-grep %s --nocolor -f'
-    elseif executable('ack')
-        let s:ctrlp_fallback = 'ack %s --nocolor -f'
-    else
-        let s:ctrlp_fallback = 'find %s -type f'
-    endif
+    nmap <leader>gf :CtrlP<CR><C-\>w
 endif
 "}
 
