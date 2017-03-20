@@ -154,6 +154,8 @@ export N_PREFIX="/usr/local"
 # Use homebrew php on the command line..
 export PATH="$(brew --prefix homebrew/php/php54)/bin:$PATH"
 
+export PATH="$PATH:$HOME/.yarn/bin"
+
 # Install casks in /Application instead of ~/Applications
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
