@@ -2,7 +2,7 @@
 
 " Plug {
     call plug#begin()
-    " " General {
+      " General {
         Plug 'tpope/vim-sensible'
         Plug 'mileszs/ack.vim'
         Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -29,41 +29,41 @@
         Plug 'flazz/vim-colorschemes'
         Plug 'mbbill/undotree'
         Plug 'nathanaelkane/vim-indent-guides'
-    "     Plug 'vim-scripts/restore_view.vim'
+        " Plug 'vim-scripts/restore_view.vim'
         Plug 'gcmt/wildfire.vim'
         Plug 'godlygeek/tabular'
         if executable('ctags')
-            Plug 'majutsushi/tagbar'
+          Plug 'majutsushi/tagbar'
         endif
-    " }
+      " }
 
-    " AutoComplete {
+      " AutoComplete {
         Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer' }
         Plug 'SirVer/ultisnips'
         Plug 'honza/vim-snippets'
-    " }
+      " }
 
-    " PHP {
+      " PHP {
         Plug 'shawncplus/phpcomplete.vim'
         Plug 'arnaud-lb/vim-php-namespace'
-    " }
+      " }
 
-    " Javascript {
+      " Javascript {
         Plug 'elzr/vim-json'
         Plug 'pangloss/vim-javascript'
         Plug 'jelera/vim-javascript-syntax'
         Plug 'ternjs/tern_for_vim', { 'do': 'yarn' }
         Plug 'mxw/vim-jsx'
-    " }
+      " }
 
-    " HTML {
+      " HTML {
         Plug 'alvan/vim-closetag'
-    " }
+      " }
 
-    " CSS {
+      " CSS {
         Plug 'hail2u/vim-css3-syntax'
         Plug 'cakebaker/scss-syntax.vim'
-    " }
+      " }
     call plug#end()
 " }
 
@@ -82,7 +82,7 @@
     set mouse=a
     " enable pane resize with the mouse inside of tmux
     if &term =~ '^screen'
-        set ttymouse=xterm2
+      set ttymouse=xterm2
     endif
     set background=dark
     " set nowrap
@@ -98,11 +98,11 @@
     set iskeyword-=-                " '-' is an end of word designator
 
     if has('clipboard')
-        if has('unnamedplus') " When possible use + register for copy-paste
-            set clipboard=unnamed,unnamedplus
-        else " On mac and Windows, use * register for copy-paste
-            set clipboard=unnamed
-        endif
+      if has('unnamedplus') " When possible use + register for copy-paste
+        set clipboard=unnamed,unnamedplus
+      else " On mac and Windows, use * register for copy-paste
+        set clipboard=unnamed
+      endif
     endif
 
     " Instead of reverting the cursor to the last position in the buffer, we
@@ -114,15 +114,15 @@
     " To disable this, add the following to your .vimrc.before.local file:
     "   let g:spf13_no_restore_cursor = 1
     function! ResCur()
-        if line("'\"") <= line("$")
-            silent! normal! g`"
-            return 1
-        endif
+      if line("'\"") <= line("$")
+        silent! normal! g`"
+        return 1
+      endif
     endfunction
 
     augroup resCur
-        autocmd!
-        autocmd BufWinEnter * call ResCur()
+      autocmd!
+      autocmd BufWinEnter * call ResCur()
     augroup END
 
     map <C-J> <C-W>j<C-W>
@@ -131,13 +131,21 @@
     map <C-H> <C-W>h<C-W>
 
     " Setting up the directories {
-        set backup                  " Backups are nice ...
-        if has('persistent_undo')
-            set undofile                " So is persistent undo ...
-            set undolevels=1000         " Maximum number of changes that can be undone
-            set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
-        endif
+      set backup                  " Backups are nice ...
+      if has('persistent_undo')
+        set undofile                " So is persistent undo ...
+        set undolevels=1000         " Maximum number of changes that can be undone
+        set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
+      endif
     " }
+
+    " Run a macro on multiple visually selected lines 
+    " https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim
+    xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+    function! ExecuteMacroOverVisualRange()
+      echo "@".getcmdline()
+      execute ":'<,'>normal @".nr2char(getchar())
+    endfunction
 " }
 
 " Vim UI {
