@@ -54,7 +54,6 @@
         Plug 'jelera/vim-javascript-syntax'
         Plug 'ternjs/tern_for_vim', { 'do': 'yarn' }
         Plug 'mxw/vim-jsx'
-        Plug 'flowtype/vim-flow'
       " }
 
       " Ruby {
