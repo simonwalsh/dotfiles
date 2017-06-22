@@ -26,18 +26,10 @@ declare -a PACKAGES=(
   'wget:--enable-iri'
   'zsh'
 
-  'android-platform-tools'
   'ctags'
   'vim:--override-system-vi'
 
-  'composer'
-  'mongodb'
-  'mysql'
-  'php70'
-  'php70-mongo'
-
-  'ffmpeg'
-  'gifsicle'
+  'yarn'
 )
 
 main() {
@@ -47,10 +39,6 @@ main() {
 
   execute "brew update --all" "Updated Homebrew"
   execute "brew upgrade `brew outdated`" "Upgraded outdated packages"
-
-  brew_install "tap homebrew/dupes" "homebrew/dupes" "tap"
-  brew_install "tap homebrew/versions" "homebrew/versions" "tap"
-  brew_install "tap homebrew/homebrew-php" "homebrew/homebrew-php" "tap"
 
   for i in ${PACKAGES[@]}; do
     parts=(${i//:/ })

@@ -342,7 +342,7 @@ endif
 
       " let g:NERDTreeShutUp=1
       let NERDTreeShowBookmarks=1
-      let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+      let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '\.DS_Store$']
       let NERDTreeChDirMode=0
       " let NERDTreeQuitOnOpen=1
       let NERDTreeMouseMode=2
@@ -403,12 +403,6 @@ endif
   " Close tag {
     if isdirectory(expand("~/.vim/plugged/vim-closetag/"))
       let g:closetag_filenames = "*.html,*.ctp,*.js"
-    endif
-  "}
-
-  " Rainbow {
-    if isdirectory(expand("~/.vim/plugged/rainbow/"))
-      let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
     endif
   "}
 

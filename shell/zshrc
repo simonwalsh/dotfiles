@@ -55,6 +55,9 @@ alias ctags="`brew --prefix`/bin/ctags"
 # Remove those pesky .DS_Store files.
 alias rmds="find . -name '*.DS_Store' -type f -delete"
 
+# Install gems in the <cwd>/.bundle/ directory
+alias bi="bundle install --path=.bundle"
+
 # .mov to animated .gif!
 # parameters are input output
 function movtogif() {
@@ -102,6 +105,9 @@ eval "$(rbenv init -)"
 
 # boost ulimit
 ulimit -S -n 2048
+
+# https://github.com/garabik/grc#automatic-aliases
+[[ -s "/etc/grc.zsh"  ]] && source /etc/grc.zsh
 
 # Load .zshrc.local if available, overrides other settings.
 [[ -r ~/.zshrc.local ]] && . ~/.zshrc.local

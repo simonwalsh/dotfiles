@@ -15,6 +15,7 @@
 # npm log file
 # https://docs.npmjs.com/misc/config#loglevel
 npm-debug.log
+yarn-error.log
 node_modules
 
 # python compiled files
