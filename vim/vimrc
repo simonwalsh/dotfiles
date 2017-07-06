@@ -8,7 +8,7 @@
         Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
         Plug 'altercation/vim-colors-solarized'
         Plug 'myusuf3/numbers.vim'
-        Plug 'neomake/neomake'
+        Plug 'w0rp/ale'
         Plug 'janko-m/vim-test'
         Plug 'airblade/vim-gitgutter'
         Plug 'tpope/vim-fugitive'
@@ -325,13 +325,8 @@ endif
     let g:jsx_ext_required = 0
   " }
 
-  " neomake {
-    let g:neomake_javascript_enabled_makers = ['eslint']
-    let g:neomake_error_sign = {
-      \ 'text': '>>',
-      \ 'texthl': 'ErrorMsg',
-      \ }
-    autocmd! BufWritePost * Neomake
+  " ALE {
+    let g:airline#extensions#ale#enabled = 1
   " }
 
   " NerdTree {
