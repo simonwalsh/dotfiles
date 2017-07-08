@@ -2,7 +2,7 @@
 
 source 'utils.sh'
 
-declare -a FILES_TO_SYMLINK=(
+declare -a DOTFILES_TO_SYMLINK=(
   'tern-config'
 
   'shell/tmux.conf'
@@ -14,32 +14,41 @@ declare -a FILES_TO_SYMLINK=(
 
   'vim/vimrc'
   'vim/vimrc.encrypted'
-  'vim/xvimrc'
 )
+
+link() {
+  local sourceFile=$1
+  local targetFile=$2
+
+  if [ ! -e "$targetFile" ]; then
+    execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
+  elif [ "$(readlink "$targetFile")" == "$sourceFile" ]; then
+    print_success "$targetFile → $sourceFile"
+  else
+    ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
+    if answer_is_yes; then
+      rm -rf "$targetFile"
+      execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
+    else
+      print_error "$targetFile → $sourceFile"
+    fi
+  fi
+}
 
 main() {
   local i=''
   local sourceFile=''
   local targetFile=''
 
-  for i in ${FILES_TO_SYMLINK[@]}; do
+  for i in ${DOTFILES_TO_SYMLINK[@]}; do
     sourceFile="$(pwd)/$i"
     targetFile="$HOME/.$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
-
-    if [ ! -e "$targetFile" ]; then
-      execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
-    elif [ "$(readlink "$targetFile")" == "$sourceFile" ]; then
-      print_success "$targetFile → $sourceFile"
-    else
-      ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
-      if answer_is_yes; then
-        rm -rf "$targetFile"
-        execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
-      else
-        print_error "$targetFile → $sourceFile"
-      fi
-    fi
+    link $sourceFile $targetFile
   done
+
+  # setup XDG config directory and configs
+  mkdir -p $HOME/.config/nvim
+  link "$(pwd)/config/nvim/init.vim" "$HOME/.config/nvim/init.vim"
 }
 
 main
