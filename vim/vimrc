@@ -21,9 +21,8 @@
         Plug 'rhysd/conflict-marker.vim'
         Plug 'jiangmiao/auto-pairs'
         Plug 'ctrlpvim/ctrlp.vim'
-        Plug 'matchit.zip'
-        Plug 'Lokaltog/powerline', { 'rtp':'/powerline/bindings/vim' }
-        Plug 'powerline/fonts'
+        Plug 'vim-airline/vim-airline'
+        Plug 'vim-airline/vim-airline-themes'
         Plug 'bling/vim-bufferline'
         Plug 'easymotion/vim-easymotion'
         Plug 'flazz/vim-colorschemes'
@@ -34,6 +33,9 @@
         Plug 'godlygeek/tabular'
         if executable('ctags')
           Plug 'majutsushi/tagbar'
+        endif
+        if (!has('nvim'))
+          Plug 'matchit.zip'
         endif
       " }
 
@@ -145,7 +147,7 @@
       endif
     " }
 
-    " Run a macro on multiple visually selected lines 
+    " Run a macro on multiple visually selected lines
     " https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim
     xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
     function! ExecuteMacroOverVisualRange()
@@ -283,10 +285,8 @@ endif
 " }
 
 " Plugins {
-  " Misc {
-    if isdirectory(expand("~/.vim/plugged/matchit.zip"))
-      let b:match_ignorecase = 1
-    endif
+  " Matchit {
+    let b:match_ignorecase = 1
   " }
 
   " Ctags {
@@ -300,15 +300,12 @@ endif
   " }
 
   " TmuxNavigate {
-    let g:tmux_navigator_no_mappings = 1
     let g:tmux_navigator_save_on_switch = 1
-    nnoremap <silent> <C-H> :TmuxNavigateLeft<cr>
-    nnoremap <silent> <C-J> :TmuxNavigateDown<cr>
-    nnoremap <silent> <C-K> :TmuxNavigateUp<cr>
-    nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
   " }
 
   " Tests {
+    " default is: '\v(__tests__/.*|(spec|test))\.(js|jsx|coffee)$'
+    let g:test#javascript#jest#file_pattern = '.test.js'
     nmap <Leader>t :TestNearest<cr>
     nmap <Leader>T :TestFile<cr>
   " }
@@ -330,42 +327,38 @@ endif
   " }
 
   " NerdTree {
-    if isdirectory(expand("~/.vim/plugged/nerdtree"))
-      map <C-e> :NERDTreeToggle<CR>
-      map <leader>e :NERDTreeFind<CR>
-      nmap <leader>nt :NERDTreeFind<CR>
+    map <C-e> :NERDTreeToggle<CR>
+    map <leader>e :NERDTreeFind<CR>
+    nmap <leader>nt :NERDTreeFind<CR>
 
-      " let g:NERDTreeShutUp=1
-      let NERDTreeShowBookmarks=1
-      let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '\.DS_Store$']
-      let NERDTreeChDirMode=0
-      " let NERDTreeQuitOnOpen=1
-      let NERDTreeMouseMode=2
-      let NERDTreeShowHidden=1
-      let NERDTreeKeepTreeInNewTab=1
-      let g:nerdtree_tabs_open_on_gui_startup=0
-    endif
+    " let g:NERDTreeShutUp=1
+    let NERDTreeShowBookmarks=1
+    let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '\.DS_Store$']
+    let NERDTreeChDirMode=0
+    " let NERDTreeQuitOnOpen=1
+    let NERDTreeMouseMode=2
+    let NERDTreeShowHidden=1
+    let NERDTreeKeepTreeInNewTab=1
+    let g:nerdtree_tabs_open_on_gui_startup=0
   " }
 
   " Tabularize {
-    if isdirectory(expand("~/.vim/plugged/tabular"))
-      nmap <Leader>a& :Tabularize /&<CR>
-      vmap <Leader>a& :Tabularize /&<CR>
-      nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
-      vmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
-      nmap <Leader>a=> :Tabularize /=><CR>
-      vmap <Leader>a=> :Tabularize /=><CR>
-      nmap <Leader>a: :Tabularize /:<CR>
-      vmap <Leader>a: :Tabularize /:<CR>
-      nmap <Leader>a:: :Tabularize /:\zs<CR>
-      vmap <Leader>a:: :Tabularize /:\zs<CR>
-      nmap <Leader>a, :Tabularize /,<CR>
-      vmap <Leader>a, :Tabularize /,<CR>
-      nmap <Leader>a,, :Tabularize /,\zs<CR>
-      vmap <Leader>a,, :Tabularize /,\zs<CR>
-      nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-      vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-    endif
+    nmap <Leader>a& :Tabularize /&<CR>
+    vmap <Leader>a& :Tabularize /&<CR>
+    nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
+    vmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
+    nmap <Leader>a=> :Tabularize /=><CR>
+    vmap <Leader>a=> :Tabularize /=><CR>
+    nmap <Leader>a: :Tabularize /:<CR>
+    vmap <Leader>a: :Tabularize /:<CR>
+    nmap <Leader>a:: :Tabularize /:\zs<CR>
+    vmap <Leader>a:: :Tabularize /:\zs<CR>
+    nmap <Leader>a, :Tabularize /,<CR>
+    vmap <Leader>a, :Tabularize /,<CR>
+    nmap <Leader>a,, :Tabularize /,\zs<CR>
+    vmap <Leader>a,, :Tabularize /,\zs<CR>
+    nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+    vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
   " }
 
   " JSON {
@@ -374,47 +367,39 @@ endif
   " }
 
   " ctrlp {
-    if isdirectory(expand("~/.vim/plugged/ctrlp.vim/"))
-      " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-      let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-      " let g:ctrlp_clear_cache_on_exit = 0
-      let g:ctrlp_dotfiles = 0
-      let g:ctrlp_max_files=0
-      let g:ctrlp_custom_ignore = {
-        \ 'dir':  '\v[\/]\.?(atom|git|hg|svn|vim|vimbackup|vimswap|vimundo|viewviews|sass-cache|cache|node_module)$',
-        \ 'file': '\v\.(exe|so|dll|pyc)$',
-      \ }
-      nnoremap <silent> <C-f> :CtrlPMixed<CR>
-      nmap <leader>gf :CtrlP<CR><C-\>w
-    endif
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    " let g:ctrlp_clear_cache_on_exit = 0
+    let g:ctrlp_dotfiles = 0
+    let g:ctrlp_max_files=0
+    let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/]\.?(atom|git|hg|svn|vim|vimbackup|vimswap|vimundo|viewviews|sass-cache|cache|node_module)$',
+      \ 'file': '\v\.(exe|so|dll|pyc)$',
+    \ }
+    nnoremap <silent> <C-f> :CtrlPMixed<CR>
+    nmap <leader>gf :CtrlP<CR><C-\>w
   "}
 
   " TagBar {
-    if isdirectory(expand("~/.vim/plugged/tagbar/"))
-      nnoremap <silent> <leader>tt :TagbarToggle<CR>
-    endif
+    nnoremap <silent> <leader>tt :TagbarToggle<CR>
   "}
 
   " Close tag {
-    if isdirectory(expand("~/.vim/plugged/vim-closetag/"))
-      let g:closetag_filenames = "*.html,*.ctp,*.js"
-    endif
+    let g:closetag_filenames = "*.html,*.ctp,*.js"
   "}
 
   " Fugitive {
-    if isdirectory(expand("~/.vim/plugged/vim-fugitive/"))
-      nnoremap <silent> <leader>gs :Gstatus<CR>
-      nnoremap <silent> <leader>gd :Gdiff<CR>
-      nnoremap <silent> <leader>gc :Gcommit<CR>
-      nnoremap <silent> <leader>gb :Gblame<CR>
-      nnoremap <silent> <leader>gl :Glog<CR>
-      nnoremap <silent> <leader>gp :Git push<CR>
-      nnoremap <silent> <leader>gr :Gread<CR>
-      nnoremap <silent> <leader>gw :Gwrite<CR>
-      nnoremap <silent> <leader>ge :Gedit<CR>
-      " Mnemonic _i_nteractive
-      nnoremap <silent> <leader>gi :Git add -p %<CR>
-    endif
+    nnoremap <silent> <leader>gs :Gstatus<CR>
+    nnoremap <silent> <leader>gd :Gdiff<CR>
+    nnoremap <silent> <leader>gc :Gcommit<CR>
+    nnoremap <silent> <leader>gb :Gblame<CR>
+    nnoremap <silent> <leader>gl :Glog<CR>
+    nnoremap <silent> <leader>gp :Git push<CR>
+    nnoremap <silent> <leader>gr :Gread<CR>
+    nnoremap <silent> <leader>gw :Gwrite<CR>
+    nnoremap <silent> <leader>ge :Gedit<CR>
+    " Mnemonic _i_nteractive
+    nnoremap <silent> <leader>gi :Git add -p %<CR>
   "}
 
   " YouCompleteMe {
@@ -452,19 +437,15 @@ endif
   " }
 
   " UndoTree {
-    if isdirectory(expand("~/.vim/plugged/undotree/"))
-      nnoremap <Leader>u :UndotreeToggle<CR>
-      " If undotree is opened, it is likely one wants to interact with it.
-      let g:undotree_SetFocusWhenToggle=1
-    endif
+    nnoremap <Leader>u :UndotreeToggle<CR>
+    " If undotree is opened, it is likely one wants to interact with it.
+    let g:undotree_SetFocusWhenToggle=1
   " }
 
   " indent_guides {
-    if isdirectory(expand("~/.vim/plugged/vim-indent-guides/"))
-      let g:indent_guides_start_level = 2
-      let g:indent_guides_guide_size = 1
-      let g:indent_guides_enable_on_vim_startup = 1
-    endif
+    let g:indent_guides_start_level = 2
+    let g:indent_guides_guide_size = 1
+    let g:indent_guides_enable_on_vim_startup = 1
   " }
 
   " Wildfire {
@@ -475,27 +456,10 @@ endif
   " }
 
   " vim-airline {
-    " Set configuration options for the statusline plugin vim-airline.
-    " Use the powerline theme and optionally enable powerline symbols.
-    " To use the symbols , , , , , , and .in the statusline
-    " segments add the following to your .vimrc.before.local file:
-    "   let g:airline_powerline_fonts=1
-    " If the previous symbols do not render for you then install a
-    " powerline enabled font.
-
-    " See `:echo g:airline_theme_map` for some more choices
-    " Default in terminal vim is 'dark'
-    if isdirectory(expand("~/.vim/plugged/vim-airline-themes/"))
-      if !exists('g:airline_theme')
-        let g:airline_theme = 'solarized'
-      endif
-
-      if !exists('g:airline_powerline_fonts')
-        " Use the default set of separators with a few customizations
-        let g:airline_left_sep='›'  " Slightly fancier than '>'
-        let g:airline_right_sep='‹' " Slightly fancier than '<'
-      endif
-    endif
+    let g:airline_theme = 'bubblegum'
+    let g:airline#extensions#tabline#left_sep = ' '
+    let g:airline#extensions#tabline#left_alt_sep = '|'
+    let g:airline_extensions = ['ale', 'branch', 'ycm', 'ctrlp']
   " }
 " }
 
