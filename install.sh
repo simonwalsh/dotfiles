@@ -73,7 +73,18 @@ fi
 
 ###
 
-ask_for_confirmation 'Install/Update misc ?'
+ask_for_confirmation 'Install/Update global node modules ?'
+printf '\n'
+
+if answer_is_yes; then
+  print_info 'Install/Update global node modules'
+  ./installs/node_modules.sh
+  print_in_green '\n  ---\n\n'
+fi
+
+###
+
+ask_for_confirmation 'Install/Update misc (vim-plug, ...) ?'
 printf '\n'
 
 if answer_is_yes; then

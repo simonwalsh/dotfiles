@@ -13,7 +13,6 @@ declare -a PACKAGES=(
   'vlc'
   'disk-inventory-x'
   'dropbox'
-  # screen dimming thing
   'flux'
   'limechat'
   'utorrent'
