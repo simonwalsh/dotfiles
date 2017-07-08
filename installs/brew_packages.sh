@@ -28,6 +28,7 @@ declare -a PACKAGES=(
 
   'ctags'
   'vim:--override-system-vi'
+  'neovim'
 
   'yarn'
 )
