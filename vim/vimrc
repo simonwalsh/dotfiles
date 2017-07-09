@@ -41,6 +41,7 @@
 
       " AutoComplete {
         Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer' }
+        Plug 'othree/jspc.vim'
         Plug 'SirVer/ultisnips'
         Plug 'honza/vim-snippets'
       " }
@@ -152,50 +153,50 @@
 " }
 
 " Vim UI {
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
-colorscheme solarized
-set background=dark
+  let g:solarized_termcolors=256
+  let g:solarized_termtrans=1
+  let g:solarized_contrast="normal"
+  let g:solarized_visibility="normal"
+  colorscheme solarized
+  set background=dark
 
-syn keyword jsCommentTodo REFACTOR
-syn keyword rubyTodo REFACTOR
+  syn keyword jsCommentTodo REFACTOR
+  syn keyword rubyTodo REFACTOR
 
-set showmode                    " Display the current mode
+  set showmode                    " Display the current mode
 
-set cursorline                  " Highlight current line
+  set cursorline                  " Highlight current line
 
-highlight clear SignColumn      " SignColumn should match background
-highlight clear LineNr          " Current line number row will have same background color in relative mode
+  highlight clear SignColumn      " SignColumn should match background
+  highlight clear LineNr          " Current line number row will have same background color in relative mode
 
-if has('cmdline_info')
-  set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
-  set showcmd                 " Show partial commands in status line and
-  " Selected characters/lines in visual mode
-endif
+  if has('cmdline_info')
+    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
+    set showcmd                 " Show partial commands in status line and
+    " Selected characters/lines in visual mode
+  endif
 
-if has('statusline')
-  " Broken down into easily includeable segments
-  set statusline=%<%f\                     " Filename
-  set statusline+=%w%h%m%r                 " Options
-  set statusline+=%{fugitive#statusline()} " Git Hotness
-  set statusline+=\ [%{&ff}/%Y]            " Filetype
-  set statusline+=\ [%{getcwd()}]          " Current dir
-  set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+  if has('statusline')
+    " Broken down into easily includeable segments
+    set statusline=%<%f\                     " Filename
+    set statusline+=%w%h%m%r                 " Options
+    set statusline+=%{fugitive#statusline()} " Git Hotness
+    set statusline+=\ [%{&ff}/%Y]            " Filetype
+    set statusline+=\ [%{getcwd()}]          " Current dir
+    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 
-  set linespace=0                 " No extra spaces between rows
-  set number                      " Line numbers on
-  set showmatch                   " Show matching brackets/parenthesis
-  set hlsearch                    " Highlight search terms
-  set winminheight=0              " Windows can be 0 line high
-  set ignorecase                  " Case insensitive search
-  set smartcase                   " Case sensitive when uc present
-  set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
-  set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
-  set scrolljump=5                " Lines to scroll when cursor leaves screen
-  set foldenable                  " Auto fold code
-endif
+    set linespace=0                 " No extra spaces between rows
+    set number                      " Line numbers on
+    set showmatch                   " Show matching brackets/parenthesis
+    set hlsearch                    " Highlight search terms
+    set winminheight=0              " Windows can be 0 line high
+    set ignorecase                  " Case insensitive search
+    set smartcase                   " Case sensitive when uc present
+    set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+    set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
+    set scrolljump=5                " Lines to scroll when cursor leaves screen
+    set foldenable                  " Auto fold code
+  endif
 " }
 
 " Formatting {
@@ -327,11 +328,9 @@ endif
     map <leader>e :NERDTreeFind<CR>
     nmap <leader>nt :NERDTreeFind<CR>
 
-    " let g:NERDTreeShutUp=1
     let NERDTreeShowBookmarks=1
     let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '\.DS_Store$']
     let NERDTreeChDirMode=0
-    " let NERDTreeQuitOnOpen=1
     let NERDTreeMouseMode=2
     let NERDTreeShowHidden=1
     let NERDTreeKeepTreeInNewTab=1
@@ -362,12 +361,16 @@ endif
     let g:vim_json_syntax_conceal = 0
   " }
 
+  " Tern {
+    nnoremap <leader>gt :TernDef<CR>
+  " }
+
   " ctrlp {
     " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
     " let g:ctrlp_clear_cache_on_exit = 0
     let g:ctrlp_dotfiles = 0
-    let g:ctrlp_max_files=0
+    let g:ctrlp_max_files = 0
     let g:ctrlp_custom_ignore = {
       \ 'dir':  '\v[\/]\.?(atom|git|hg|svn|vim|vimbackup|vimswap|vimundo|viewviews|sass-cache|cache|node_module)$',
       \ 'file': '\v\.(exe|so|dll|pyc)$',
@@ -409,10 +412,14 @@ endif
     let g:UltiSnipsJumpForwardTrigger = '<C-j>'
     let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
+    let g:tern_show_argument_hints = 'on_hold'
+    let g:tern_show_signature_in_pum = 1
+
     " Enable omni completion.
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType javascript setlocal omnifunc=tern#Complete
     autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
     autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
@@ -420,10 +427,8 @@ endif
     autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 
     " For snippet_complete marker.
-    if !exists("g:spf13_no_conceal")
-      if has('conceal')
-        set conceallevel=2 concealcursor=i
-      endif
+    if has('conceal')
+      set conceallevel=2 concealcursor=i
     endif
 
     " Disable the neosnippet preview candidate window
