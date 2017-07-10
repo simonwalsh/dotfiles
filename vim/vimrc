@@ -1,155 +1,158 @@
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
 
 " Plug {
-    call plug#begin()
-      " General {
-        Plug 'tpope/vim-sensible'
-        Plug 'mileszs/ack.vim'
-        Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-        Plug 'altercation/vim-colors-solarized'
-        Plug 'myusuf3/numbers.vim'
-        Plug 'w0rp/ale'
-        Plug 'janko-m/vim-test'
-        Plug 'airblade/vim-gitgutter'
-        Plug 'tpope/vim-fugitive'
-        Plug 'darfink/vim-plist', { 'for': 'plist' }
-        Plug 'tomtom/tcomment_vim'
-        Plug 'jlanzarotta/bufexplorer'
-        Plug 'rizzatti/dash.vim'
-        Plug 'christoomey/vim-tmux-navigator'
-        Plug 'tpope/vim-surround'
-        Plug 'rhysd/conflict-marker.vim'
-        Plug 'jiangmiao/auto-pairs'
-        Plug 'ctrlpvim/ctrlp.vim'
-        Plug 'vim-airline/vim-airline'
-        Plug 'vim-airline/vim-airline-themes'
-        Plug 'bling/vim-bufferline'
-        Plug 'easymotion/vim-easymotion'
-        Plug 'flazz/vim-colorschemes'
-        Plug 'mbbill/undotree'
-        Plug 'nathanaelkane/vim-indent-guides'
-        " Plug 'vim-scripts/restore_view.vim'
-        Plug 'gcmt/wildfire.vim'
-        Plug 'godlygeek/tabular'
-        if executable('ctags')
-          Plug 'majutsushi/tagbar'
-        endif
-        if (!has('nvim'))
-          Plug 'matchit.zip'
-        endif
-      " }
-
-      " AutoComplete {
-        Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer' }
-        Plug 'othree/jspc.vim'
-        Plug 'SirVer/ultisnips'
-        Plug 'honza/vim-snippets'
-      " }
-
-      " PHP {
-        Plug 'shawncplus/phpcomplete.vim'
-        Plug 'arnaud-lb/vim-php-namespace'
-      " }
-
-      " Javascript {
-        Plug 'elzr/vim-json'
-        Plug 'pangloss/vim-javascript'
-        Plug 'jelera/vim-javascript-syntax'
-        Plug 'ternjs/tern_for_vim', { 'do': 'yarn' }
-        Plug 'mxw/vim-jsx'
-      " }
-
-      " Ruby {
-        Plug 'tpope/vim-rails'
-      " }
-
-      " HTML {
-        Plug 'alvan/vim-closetag'
-      " }
-
-      " CSS {
-        Plug 'hail2u/vim-css3-syntax'
-        Plug 'cakebaker/scss-syntax.vim'
-      " }
-
-      " Template highlighting {
-        Plug 'slim-template/vim-slim'
-      " }
-    call plug#end()
-" }
-
-" General {
-    nmap <space> :
-    inoremap jj <esc>
-
-    let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
-    nmap <leader>fw :Ack <C-R><C-W><CR>
-    nmap <leader>ff :CtrlPMixed <C-R><C-W>
-
-    set mouse=a
-    " enable pane resize with the mouse inside of tmux
-    if &term =~ '^screen'
-      set ttymouse=xterm2
-    endif
-    " set nowrap
-    set relativenumber
-    set colorcolumn=80
-    set shortmess+=filmnrxoOtT	" Abbrev. of messages (avoids 'hit enter')
-    set virtualedit=onemore 	" Allow cursor beyond last character
-    set spell
-    set autoread " auto read files when they change
-    set hidden 			" Allow buffer switching without saving
-    set iskeyword-=.                " '.' is an end of word designator
-    set iskeyword-=#                " '#' is an end of word designator
-    set iskeyword-=-                " '-' is an end of word designator
-
-    if has('clipboard')
-      if has('unnamedplus') " When possible use + register for copy-paste
-        set clipboard=unnamed,unnamedplus
-      else " On mac and Windows, use * register for copy-paste
-        set clipboard=unnamed
+  call plug#begin()
+    " General {
+      Plug 'tpope/vim-sensible'
+      Plug 'mileszs/ack.vim'
+      Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+      Plug 'altercation/vim-colors-solarized'
+      Plug 'myusuf3/numbers.vim'
+      Plug 'w0rp/ale'
+      Plug 'janko-m/vim-test'
+      Plug 'airblade/vim-gitgutter'
+      Plug 'tpope/vim-fugitive'
+      Plug 'darfink/vim-plist', { 'for': 'plist' }
+      Plug 'tomtom/tcomment_vim'
+      Plug 'jlanzarotta/bufexplorer'
+      Plug 'rizzatti/dash.vim'
+      Plug 'christoomey/vim-tmux-navigator'
+      Plug 'tpope/vim-surround'
+      Plug 'rhysd/conflict-marker.vim'
+      Plug 'jiangmiao/auto-pairs'
+      Plug 'ctrlpvim/ctrlp.vim'
+      Plug 'vim-airline/vim-airline'
+      Plug 'vim-airline/vim-airline-themes'
+      Plug 'bling/vim-bufferline'
+      Plug 'easymotion/vim-easymotion'
+      Plug 'flazz/vim-colorschemes'
+      Plug 'mbbill/undotree'
+      Plug 'nathanaelkane/vim-indent-guides'
+      Plug 'vim-scripts/restore_view.vim'
+      Plug 'gcmt/wildfire.vim'
+      Plug 'godlygeek/tabular'
+      if executable('ctags')
+        Plug 'majutsushi/tagbar'
       endif
-    endif
-
-    " Instead of reverting the cursor to the last position in the buffer, we
-    " set it to the first line when editing a git commit message
-    au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
-
-    " http://vim.wikia.com/wiki/Restore_cursor_to_file_position_in_previous_editing_session
-    " Restore cursor to file position in previous editing session
-    function! ResCur()
-      if line("'\"") <= line("$")
-        silent! normal! g`"
-        return 1
-      endif
-    endfunction
-
-    augroup resCur
-      autocmd!
-      autocmd BufWinEnter * call ResCur()
-    augroup END
-
-    map <C-J> <C-W>j<C-W>
-    map <C-K> <C-W>k<C-W>
-    map <C-L> <C-W>l<C-W>
-    map <C-H> <C-W>h<C-W>
-
-    " Setting up the directories {
-      set backup                  " Backups are nice ...
-      if has('persistent_undo')
-        set undofile                " So is persistent undo ...
-        set undolevels=1000         " Maximum number of changes that can be undone
-        set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
+      if (!has('nvim'))
+        Plug 'matchit.zip'
       endif
     " }
 
-    " Run a macro on multiple visually selected lines
-    " https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim
-    xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-    function! ExecuteMacroOverVisualRange()
-      echo "@".getcmdline()
-      execute ":'<,'>normal @".nr2char(getchar())
-    endfunction
+    " AutoComplete {
+      Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer' }
+      Plug 'SirVer/ultisnips'
+      Plug 'honza/vim-snippets'
+    " }
+
+    " PHP {
+      Plug 'shawncplus/phpcomplete.vim'
+      Plug 'arnaud-lb/vim-php-namespace'
+    " }
+
+    " Javascript {
+      Plug 'elzr/vim-json'
+      Plug 'pangloss/vim-javascript'
+      Plug 'jelera/vim-javascript-syntax'
+      Plug 'ternjs/tern_for_vim', { 'do': 'yarn' }
+      Plug 'mxw/vim-jsx'
+      Plug 'othree/jspc.vim'
+    " }
+
+    " Ruby {
+      Plug 'tpope/vim-rails'
+    " }
+
+    " HTML {
+      Plug 'alvan/vim-closetag'
+    " }
+
+    " CSS {
+      Plug 'hail2u/vim-css3-syntax'
+      Plug 'cakebaker/scss-syntax.vim'
+    " }
+
+    " Template highlighting {
+      Plug 'slim-template/vim-slim'
+    " }
+  call plug#end()
+" }
+
+" General {
+  nmap <space> :
+  inoremap jj <esc>
+  set timeoutlen=200
+
+  let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+  nmap <leader>fw :Ack <C-R><C-W><CR>
+  nmap <leader>ff :CtrlPMixed <C-R><C-W>
+
+  set mouse=a
+  " enable pane resize with the mouse inside of tmux
+  if &term =~ '^screen'
+    set ttymouse=xterm2
+  endif
+  " set nowrap
+  set relativenumber
+  set colorcolumn=80
+  set shortmess+=filmnrxoOtT	" Abbrev. of messages (avoids 'hit enter')
+  set virtualedit=onemore 	" Allow cursor beyond last character
+  set spell
+  set autoread " auto read files when they change
+  set hidden 			" Allow buffer switching without saving
+  set iskeyword-=.                " '.' is an end of word designator
+  set iskeyword-=#                " '#' is an end of word designator
+  set iskeyword-=-                " '-' is an end of word designator
+
+  if has('clipboard')
+    if has('unnamedplus') " When possible use + register for copy-paste
+      set clipboard=unnamed,unnamedplus
+    else " On mac and Windows, use * register for copy-paste
+      set clipboard=unnamed
+    endif
+  endif
+
+  set viewoptions=cursor,folds,slash,unix
+
+  " Instead of reverting the cursor to the last position in the buffer, we
+  " set it to the first line when editing a git commit message
+  au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
+  " http://vim.wikia.com/wiki/Restore_cursor_to_file_position_in_previous_editing_session
+  " Restore cursor to file position in previous editing session
+  function! ResCur()
+    if line("'\"") <= line("$")
+      silent! normal! g`"
+      return 1
+    endif
+  endfunction
+
+  augroup resCur
+    autocmd!
+    autocmd BufWinEnter * call ResCur()
+  augroup END
+
+  map <C-J> <C-W>j<C-W>
+  map <C-K> <C-W>k<C-W>
+  map <C-L> <C-W>l<C-W>
+  map <C-H> <C-W>h<C-W>
+
+  " Setting up the directories {
+    set backup                  " Backups are nice ...
+    if has('persistent_undo')
+      set undofile                " So is persistent undo ...
+      set undolevels=1000         " Maximum number of changes that can be undone
+      set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
+    endif
+  " }
+
+  " Run a macro on multiple visually selected lines
+  " https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim
+  xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+  function! ExecuteMacroOverVisualRange()
+    echo "@".getcmdline()
+    execute ":'<,'>normal @".nr2char(getchar())
+  endfunction
 " }
 
 " Vim UI {
@@ -249,6 +252,7 @@
   nnoremap Y y$
 
   " Code folding options
+  set foldlevelstart=100
   nmap <leader>f0 :set foldlevel=0<CR>
   nmap <leader>f1 :set foldlevel=1<CR>
   nmap <leader>f2 :set foldlevel=2<CR>
@@ -457,7 +461,7 @@
   " }
 
   " vim-airline {
-    let g:airline_theme = 'bubblegum'
+    let g:airline_theme = 'solarized'
     let g:airline#extensions#tabline#left_sep = ' '
     let g:airline#extensions#tabline#left_alt_sep = '|'
     let g:airline_extensions = ['ale', 'branch', 'ycm', 'ctrlp']
@@ -544,13 +548,11 @@
       if g:colors_name == 'solarized'
         colorscheme github
         set background=light
-        execute 'AirlineTheme solarized'
       else
         colorscheme solarized
         set background=dark
-        execute 'AirlineTheme bubblegum'
       endif
     endfunction
 
-    command ToggleBackground :call s:ToggleBackground()
+    command! ToggleBackground :call s:ToggleBackground()
 " }
