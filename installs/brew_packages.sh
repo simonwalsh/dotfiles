@@ -18,6 +18,7 @@ declare -a PACKAGES=(
 
   'the_silver_searcher'
   'ack'
+  'fzf'
   'git'
   'gnupg'
   'htop-osx'
