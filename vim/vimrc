@@ -4,7 +4,6 @@
   call plug#begin()
     " General {
       Plug 'tpope/vim-sensible'
-      Plug 'mileszs/ack.vim'
       Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
       Plug 'altercation/vim-colors-solarized'
       Plug 'myusuf3/numbers.vim'
@@ -20,7 +19,7 @@
       Plug 'tpope/vim-surround'
       Plug 'rhysd/conflict-marker.vim'
       Plug 'jiangmiao/auto-pairs'
-      Plug 'ctrlpvim/ctrlp.vim'
+      Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
       Plug 'vim-airline/vim-airline'
       Plug 'vim-airline/vim-airline-themes'
       Plug 'bling/vim-bufferline'
@@ -82,10 +81,6 @@
   nmap <space> :
   inoremap jj <esc>
   set timeoutlen=200
-
-  let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
-  nmap <leader>fw :Ack <C-R><C-W><CR>
-  nmap <leader>ff :CtrlPMixed <C-R><C-W>
 
   set mouse=a
   " enable pane resize with the mouse inside of tmux
@@ -282,7 +277,7 @@
 
   " display all lines with keyword under cursor
   " and ask which one to jump to
-  nmap <Leader>fif [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+  nmap <leader>fif [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 " }
 
 " Plugins {
@@ -369,19 +364,9 @@
     nnoremap <leader>gt :TernDef<CR>
   " }
 
-  " ctrlp {
-    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-    " let g:ctrlp_clear_cache_on_exit = 0
-    let g:ctrlp_dotfiles = 0
-    let g:ctrlp_max_files = 0
-    let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/]\.?(atom|git|hg|svn|vim|vimbackup|vimswap|vimundo|viewviews|sass-cache|cache|node_module)$',
-      \ 'file': '\v\.(exe|so|dll|pyc)$',
-    \ }
-    nnoremap <silent> <C-f> :CtrlPMixed<CR>
-    nmap <leader>gf :CtrlP<CR><C-\>w
-  "}
+  " FZF {
+    nmap <silent> <c-f> :FZF<cr>
+  " }
 
   " TagBar {
     nnoremap <silent> <leader>tt :TagbarToggle<CR>
@@ -464,7 +449,7 @@
     let g:airline_theme = 'solarized'
     let g:airline#extensions#tabline#left_sep = ' '
     let g:airline#extensions#tabline#left_alt_sep = '|'
-    let g:airline_extensions = ['ale', 'branch', 'ycm', 'ctrlp']
+    let g:airline_extensions = ['ale', 'branch', 'ycm']
   " }
 " }
 
