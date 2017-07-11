@@ -365,7 +365,7 @@
   " }
 
   " FZF {
-    nmap <silent> <c-f> :FZF<cr>
+    nmap <silent> <c-f> :Files<cr>
   " }
 
   " TagBar {
