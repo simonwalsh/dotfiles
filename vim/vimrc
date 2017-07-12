@@ -366,6 +366,8 @@
 
   " FZF {
     nmap <silent> <c-f> :Files<cr>
+    autocmd VimEnter * command! -nargs=* Ag
+      \ call fzf#vim#ag(<q-args>, {'options': '--bind=ctrl-s:select-all,ctrl-d:deselect-all '})
   " }
 
   " TagBar {
