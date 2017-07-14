@@ -32,7 +32,7 @@ declare -a PACKAGES=(
   'vim:--override-system-vi'
   'neovim'
 
-  'yarn'
+  'yarn:--ignore-dependencies'
 )
 
 main() {
