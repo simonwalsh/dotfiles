@@ -16,7 +16,7 @@ declare -a PACKAGES=(
   'flux'
   'limechat'
   'utorrent'
-  'laullon-gitx'
+  'rowanj-gitx'
   'caffeine'
 
   'qlcolorcode'

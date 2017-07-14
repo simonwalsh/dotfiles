@@ -3,7 +3,7 @@ name = Nicolas Duvieusart Déry
 email = nddery@gmail.com
 
 [core]
-editor = /usr/local/bin/vim
+editor = /usr/local/bin/nvim
 excludesfile = ~/.gitignore
 
 [push]

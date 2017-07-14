@@ -88,8 +88,8 @@ function cleanVIM() {
 # Where a node version managed by `n` installed
 export N_PREFIX="/usr/local"
 
-# Use homebrew php on the command line..
-export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+# # Use homebrew php on the command line..
+# export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
 
 # yarn.
 export PATH="$PATH:$HOME/.yarn/bin"
@@ -117,3 +117,5 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Load .zshrc.local if available, overrides other settings.
 [[ -r ~/.zshrc.local ]] && . ~/.zshrc.local
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
