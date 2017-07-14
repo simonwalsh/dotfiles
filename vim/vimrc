@@ -541,5 +541,5 @@
       endif
     endfunction
 
-    command! ToggleBackground :call s:ToggleBackground()
+    command! TB :call s:ToggleBackground()
 " }

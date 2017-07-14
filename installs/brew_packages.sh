@@ -26,6 +26,7 @@ declare -a PACKAGES=(
   'tmux'
   'wget:--enable-iri'
   'zsh'
+  'zsh-syntax-highlighting'
   'rbenv'
   'z'
 
