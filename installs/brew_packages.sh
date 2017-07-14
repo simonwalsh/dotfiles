@@ -26,6 +26,8 @@ declare -a PACKAGES=(
   'tmux'
   'wget:--enable-iri'
   'zsh'
+  'rbenv'
+  'z'
 
   'ctags'
   'vim:--override-system-vi'
