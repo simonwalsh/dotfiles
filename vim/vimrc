@@ -1,80 +1,86 @@
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
 
 " Plug {
-  call plug#begin()
-    " General {
-      Plug 'tpope/vim-sensible'
-      Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-      Plug 'altercation/vim-colors-solarized'
-      Plug 'myusuf3/numbers.vim'
-      Plug 'w0rp/ale'
-      Plug 'janko-m/vim-test'
-      Plug 'airblade/vim-gitgutter'
-      Plug 'tpope/vim-fugitive'
-      Plug 'darfink/vim-plist', { 'for': 'plist' }
-      Plug 'tomtom/tcomment_vim'
-      Plug 'jlanzarotta/bufexplorer'
-      Plug 'rizzatti/dash.vim'
-      Plug 'christoomey/vim-tmux-navigator'
-      Plug 'tpope/vim-surround'
-      Plug 'rhysd/conflict-marker.vim'
-      Plug 'jiangmiao/auto-pairs'
-      Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-      Plug 'vim-airline/vim-airline'
-      Plug 'vim-airline/vim-airline-themes'
-      Plug 'bling/vim-bufferline'
-      Plug 'easymotion/vim-easymotion'
-      Plug 'flazz/vim-colorschemes'
-      Plug 'mbbill/undotree'
-      Plug 'nathanaelkane/vim-indent-guides'
-      Plug 'vim-scripts/restore_view.vim'
-      Plug 'gcmt/wildfire.vim'
-      Plug 'godlygeek/tabular'
-      if executable('ctags')
-        Plug 'majutsushi/tagbar'
-      endif
-      if (!has('nvim'))
-        Plug 'matchit.zip'
-      endif
-    " }
+    call plug#begin()
+      " General {
+        Plug 'tpope/vim-sensible'
+        Plug 'mileszs/ack.vim'
+        Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+        Plug 'altercation/vim-colors-solarized'
+        Plug 'myusuf3/numbers.vim'
+        Plug 'w0rp/ale' "linting
+        Plug 'janko-m/vim-test'
+        Plug 'airblade/vim-gitgutter'
+        Plug 'tpope/vim-fugitive'
+        Plug 'darfink/vim-plist', { 'for': 'plist' }
+        Plug 'tomtom/tcomment_vim'
+        Plug 'jlanzarotta/bufexplorer'
+        Plug 'rizzatti/dash.vim'
+        Plug 'christoomey/vim-tmux-navigator'
+        Plug 'tpope/vim-surround'
+        Plug 'rhysd/conflict-marker.vim'
+        Plug 'jiangmiao/auto-pairs'
+        Plug 'ctrlpvim/ctrlp.vim'
+        Plug 'vim-airline/vim-airline'
+        Plug 'vim-airline/vim-airline-themes'
+        Plug 'bling/vim-bufferline'
+        Plug 'easymotion/vim-easymotion'
+        Plug 'flazz/vim-colorschemes'
+        Plug 'mbbill/undotree'
+        Plug 'nathanaelkane/vim-indent-guides'
+        " Plug 'vim-scripts/restore_view.vim'
+        Plug 'gcmt/wildfire.vim'
+        Plug 'godlygeek/tabular'
+        if executable('ctags')
+          Plug 'majutsushi/tagbar'
+        endif
+        if (!has('nvim'))
+          Plug 'matchit.zip'
+        endif
+      " }
 
-    " AutoComplete {
-      Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer' }
-      Plug 'SirVer/ultisnips'
-      Plug 'honza/vim-snippets'
-    " }
+      " AutoComplete {
+        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+        Plug 'ervandew/supertab'
+        Plug 'Shougo/neco-syntax'
+        Plug 'wellle/tmux-complete.vim'
+        Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn' }
+        Plug 'othree/jspc.vim'
 
-    " PHP {
-      Plug 'shawncplus/phpcomplete.vim'
-      Plug 'arnaud-lb/vim-php-namespace'
-    " }
+        Plug 'SirVer/ultisnips'
+        Plug 'honza/vim-snippets'
+      " }
 
-    " Javascript {
-      Plug 'elzr/vim-json'
-      Plug 'pangloss/vim-javascript'
-      Plug 'jelera/vim-javascript-syntax'
-      Plug 'ternjs/tern_for_vim', { 'do': 'yarn' }
-      Plug 'mxw/vim-jsx'
-      Plug 'othree/jspc.vim'
-    " }
+      " PHP {
+        Plug 'shawncplus/phpcomplete.vim'
+        Plug 'arnaud-lb/vim-php-namespace'
+      " }
 
-    " Ruby {
-      Plug 'tpope/vim-rails'
-    " }
+      " Javascript {
+        Plug 'elzr/vim-json'
+        Plug 'pangloss/vim-javascript'
+        Plug 'jelera/vim-javascript-syntax'
+        Plug 'ternjs/tern_for_vim', { 'do': 'yarn' }
+        Plug 'mxw/vim-jsx'
+      " }
 
-    " HTML {
-      Plug 'alvan/vim-closetag'
-    " }
+      " Ruby {
+        Plug 'tpope/vim-rails'
+      " }
 
-    " CSS {
-      Plug 'hail2u/vim-css3-syntax'
-      Plug 'cakebaker/scss-syntax.vim'
-    " }
+      " HTML {
+        Plug 'alvan/vim-closetag'
+      " }
 
-    " Template highlighting {
-      Plug 'slim-template/vim-slim'
-    " }
-  call plug#end()
+      " CSS {
+        Plug 'hail2u/vim-css3-syntax'
+        Plug 'cakebaker/scss-syntax.vim'
+      " }
+
+      " Template highlighting {
+        Plug 'slim-template/vim-slim'
+      " }
+    call plug#end()
 " }
 
 " General {
@@ -394,6 +400,7 @@
 
   " YouCompleteMe {
     let g:acp_enableAtStartup = 0
+    let g:deoplete#enable_at_startup = 1
 
     " enable completion from tags
     let g:ycm_collect_identifiers_from_tags_files = 1
