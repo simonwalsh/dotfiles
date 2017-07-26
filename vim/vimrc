@@ -6,6 +6,7 @@
       Plug 'tpope/vim-sensible'
       Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
       Plug 'altercation/vim-colors-solarized'
+      Plug 'dracula/vim'
       Plug 'myusuf3/numbers.vim'
       Plug 'w0rp/ale'
       Plug 'janko-m/vim-test'
@@ -45,7 +46,7 @@
       Plug 'wellle/tmux-complete.vim'
       Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn' }
       Plug 'othree/jspc.vim'
-      " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer' }
+      Plug 'mhartington/nvim-typescript'
       Plug 'SirVer/ultisnips'
       Plug 'honza/vim-snippets'
     " }
@@ -404,7 +405,8 @@
     let g:deoplete#enable_at_startup = 1
     let deoplete#tag#cache_limit_size = 5000000
     " tab cycle top to bottom
-    inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+    inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+    " inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
     " Enable omni completion.
     set omnifunc=syntaxcomplete#Complete
