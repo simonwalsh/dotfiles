@@ -12,6 +12,9 @@
 # | Miscellaneous                                                      |
 # ----------------------------------------------------------------------
 
+
+.tern-project
+.tern-port
 # npm log file
 # https://docs.npmjs.com/misc/config#loglevel
 npm-debug.log
