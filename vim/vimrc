@@ -1,86 +1,87 @@
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
 
 " Plug {
-    call plug#begin()
-      " General {
-        Plug 'tpope/vim-sensible'
-        Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-        Plug 'altercation/vim-colors-solarized'
-        Plug 'myusuf3/numbers.vim'
-        Plug 'w0rp/ale' "linting
-        Plug 'janko-m/vim-test'
-        Plug 'airblade/vim-gitgutter'
-        Plug 'tpope/vim-fugitive'
-        Plug 'darfink/vim-plist', { 'for': 'plist' }
-        Plug 'tomtom/tcomment_vim'
-        Plug 'jlanzarotta/bufexplorer'
-        Plug 'rizzatti/dash.vim'
-        Plug 'christoomey/vim-tmux-navigator'
-        Plug 'tpope/vim-surround'
-        Plug 'rhysd/conflict-marker.vim'
-        Plug 'jiangmiao/auto-pairs'
-        Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-        Plug 'ctrlpvim/ctrlp.vim'
-        Plug 'vim-airline/vim-airline'
-        Plug 'vim-airline/vim-airline-themes'
-        Plug 'bling/vim-bufferline'
-        Plug 'easymotion/vim-easymotion'
-        Plug 'flazz/vim-colorschemes'
-        Plug 'mbbill/undotree'
-        Plug 'nathanaelkane/vim-indent-guides'
-        " Plug 'vim-scripts/restore_view.vim'
-        Plug 'gcmt/wildfire.vim'
-        Plug 'godlygeek/tabular'
-        if executable('ctags')
-          Plug 'majutsushi/tagbar'
-        endif
-        if (!has('nvim'))
-          Plug 'matchit.zip'
-        endif
-      " }
+  call plug#begin()
+    " General {
+      Plug 'tpope/vim-sensible'
+      Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+      Plug 'altercation/vim-colors-solarized'
+      Plug 'dracula/vim'
+      Plug 'myusuf3/numbers.vim'
+      Plug 'w0rp/ale'
+      Plug 'janko-m/vim-test'
+      Plug 'airblade/vim-gitgutter'
+      Plug 'tpope/vim-fugitive'
+      Plug 'darfink/vim-plist', { 'for': 'plist' }
+      Plug 'tomtom/tcomment_vim'
+      Plug 'jlanzarotta/bufexplorer'
+      Plug 'rizzatti/dash.vim'
+      Plug 'christoomey/vim-tmux-navigator'
+      Plug 'tpope/vim-surround'
+      Plug 'rhysd/conflict-marker.vim'
+      Plug 'jiangmiao/auto-pairs'
+      Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+      Plug 'vim-airline/vim-airline'
+      Plug 'vim-airline/vim-airline-themes'
+      Plug 'bling/vim-bufferline'
+      Plug 'easymotion/vim-easymotion'
+      Plug 'flazz/vim-colorschemes'
+      Plug 'mbbill/undotree'
+      Plug 'nathanaelkane/vim-indent-guides'
+      Plug 'vim-scripts/restore_view.vim'
+      Plug 'gcmt/wildfire.vim'
+      Plug 'godlygeek/tabular'
+      if executable('ctags')
+        Plug 'majutsushi/tagbar'
+      endif
+      if (!has('nvim'))
+        Plug 'matchit.zip'
+      endif
+    " }
 
-      " AutoComplete {
-        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-        Plug 'ervandew/supertab'
-        Plug 'Shougo/neco-syntax'
-        Plug 'wellle/tmux-complete.vim'
-        Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn' }
-        Plug 'othree/jspc.vim'
+    " AutoComplete {
+      Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+      Plug 'ervandew/supertab'
+      Plug 'Shougo/neco-syntax'
+      Plug 'wellle/tmux-complete.vim'
+      Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn' }
+      Plug 'othree/jspc.vim'
+      Plug 'mhartington/nvim-typescript'
+      Plug 'SirVer/ultisnips'
+      Plug 'honza/vim-snippets'
+    " }
 
-        Plug 'SirVer/ultisnips'
-        Plug 'honza/vim-snippets'
-      " }
+    " PHP {
+      Plug 'shawncplus/phpcomplete.vim'
+      Plug 'arnaud-lb/vim-php-namespace'
+    " }
 
-      " PHP {
-        Plug 'shawncplus/phpcomplete.vim'
-        Plug 'arnaud-lb/vim-php-namespace'
-      " }
+    " Javascript {
+      Plug 'elzr/vim-json'
+      Plug 'pangloss/vim-javascript'
+      Plug 'jelera/vim-javascript-syntax'
+      Plug 'ternjs/tern_for_vim', { 'do': 'yarn' }
+      Plug 'mxw/vim-jsx'
+      Plug 'othree/jspc.vim'
+    " }
 
-      " Javascript {
-        Plug 'elzr/vim-json'
-        Plug 'pangloss/vim-javascript'
-        Plug 'jelera/vim-javascript-syntax'
-        Plug 'ternjs/tern_for_vim', { 'do': 'yarn' }
-        Plug 'mxw/vim-jsx'
-      " }
+    " Ruby {
+      Plug 'tpope/vim-rails'
+    " }
 
-      " Ruby {
-        Plug 'tpope/vim-rails'
-      " }
+    " HTML {
+      Plug 'alvan/vim-closetag'
+    " }
 
-      " HTML {
-        Plug 'alvan/vim-closetag'
-      " }
+    " CSS {
+      Plug 'hail2u/vim-css3-syntax'
+      Plug 'cakebaker/scss-syntax.vim'
+    " }
 
-      " CSS {
-        Plug 'hail2u/vim-css3-syntax'
-        Plug 'cakebaker/scss-syntax.vim'
-      " }
-
-      " Template highlighting {
-        Plug 'slim-template/vim-slim'
-      " }
-    call plug#end()
+    " Template highlighting {
+      Plug 'slim-template/vim-slim'
+    " }
+  call plug#end()
 " }
 
 " General {
@@ -368,6 +369,8 @@
 
   " Tern {
     nnoremap <leader>gt :TernDef<CR>
+    let g:tern_show_argument_hints = 'on_hold'
+    let g:tern_show_signature_in_pum = 1
   " }
 
   " FZF {
@@ -398,22 +401,15 @@
     nnoremap <silent> <leader>gi :Git add -p %<CR>
   "}
 
-  " YouCompleteMe {
-    let g:acp_enableAtStartup = 0
+  " Autocomplete {
     let g:deoplete#enable_at_startup = 1
-
-    " enable completion from tags
-    let g:ycm_collect_identifiers_from_tags_files = 1
-
-    " remap Ultisnips for compatibility for YCM
-    let g:UltiSnipsExpandTrigger = '<C-j>'
-    let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-    let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
-
-    let g:tern_show_argument_hints = 'on_hold'
-    let g:tern_show_signature_in_pum = 1
+    let deoplete#tag#cache_limit_size = 5000000
+    " tab cycle top to bottom
+    inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+    " inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
     " Enable omni completion.
+    set omnifunc=syntaxcomplete#Complete
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -423,6 +419,13 @@
     autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
     autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
     autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+  " }
+
+  " Snippets {
+    " remap Ultisnips for compatibility for YCM
+    let g:UltiSnipsExpandTrigger = '<C-j>'
+    let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+    let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
     " For snippet_complete marker.
     if has('conceal')

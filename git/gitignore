@@ -1,6 +1,9 @@
 # Useful `.gitignore` templates:
 # https://github.com/github/gitignore
 
+.tern-project
+.tern-port
+
 # ----------------------------------------------------------------------
 # | Linux                                                              |
 # ----------------------------------------------------------------------

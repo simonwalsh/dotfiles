@@ -70,8 +70,7 @@ function movtocentral() {
   ssh central@192.168.0.101 'sudo chmod -R 0777 /Data/Public/Movies/$FILE'
 }
 
-# empty all VIM backup/swap/views directory (for when there's some problem
-# with arrow keys and...)
+# empty all VIM backup/swap/views directory
 function cleanVIM() {
   # directories we'll empty are
   echo "Cleaning ~/.vimbackup/"
@@ -85,22 +84,10 @@ function cleanVIM() {
   echo "All done!"
 }
 
-# Where a node version managed by `n` installed
-export N_PREFIX="/usr/local"
-
-# # Use homebrew php on the command line..
-# export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
-
-# yarn.
-export PATH="$PATH:$HOME/.yarn/bin"
-
 # Install casks in /Application instead of ~/Applications
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Use homebrew rbenv
-# export RBENV_ROOT="$(brew --prefix rbenv)"
-# export GEM_HOME="$(brew --prefix)/opt/gems"
-# export GEM_PATH="$(brew --prefix)/opt/gems"
 eval "$(rbenv init -)"
 
 # boost ulimit
@@ -113,9 +100,10 @@ ulimit -S -n 2048
 [ -f ~/.fzf.zsh  ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# export FZF_DEFAULT_OPTS='--height 40% --border'
 
 # Load .zshrc.local if available, overrides other settings.
 [[ -r ~/.zshrc.local ]] && . ~/.zshrc.local
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
