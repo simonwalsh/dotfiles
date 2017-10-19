@@ -27,7 +27,7 @@
       Plug 'easymotion/vim-easymotion'
       Plug 'flazz/vim-colorschemes'
       Plug 'mbbill/undotree'
-      Plug 'nathanaelkane/vim-indent-guides'
+      Plug 'Yggdroot/indentLine'
       Plug 'vim-scripts/restore_view.vim'
       Plug 'gcmt/wildfire.vim'
       Plug 'godlygeek/tabular'
@@ -63,6 +63,7 @@
       Plug 'ternjs/tern_for_vim', { 'do': 'yarn' }
       Plug 'mxw/vim-jsx'
       Plug 'othree/jspc.vim'
+      Plug 'posva/vim-vue'
     " }
 
     " Ruby {
@@ -377,6 +378,7 @@
     nmap <silent> <c-f> :Files<cr>
     nmap <silent> <c-b> :Buffers<cr>
     nmap <silent> <c-w> :Lines<cr>
+    nmap <silent> <c-s> :Ag<cr>
     autocmd VimEnter * command! -nargs=* Ag
       \ call fzf#vim#ag(<q-args>, {'options': '--bind=ctrl-s:select-all,ctrl-d:deselect-all '})
   " }
@@ -447,10 +449,8 @@
     let g:undotree_SetFocusWhenToggle=1
   " }
 
-  " indent_guides {
-    let g:indent_guides_start_level = 2
-    let g:indent_guides_guide_size = 1
-    let g:indent_guides_enable_on_vim_startup = 1
+  " indent_line {
+    let g:indentLine_char = '│'
   " }
 
   " Wildfire {
