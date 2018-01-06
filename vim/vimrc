@@ -6,7 +6,6 @@
       Plug 'tpope/vim-sensible'
       Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
       Plug 'altercation/vim-colors-solarized'
-      Plug 'dracula/vim'
       Plug 'myusuf3/numbers.vim'
       Plug 'w0rp/ale'
       Plug 'janko-m/vim-test'
@@ -328,6 +327,10 @@
 
   " ALE {
     let g:airline#extensions#ale#enabled = 1
+    let g:ale_fixers = {
+    \   'javascript': ['eslint'],
+    \}
+    let g:ale_ruby_rubocop_executable = 'bundle'
   " }
 
   " NerdTree {

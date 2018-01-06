@@ -41,13 +41,7 @@ conflictstyle = diff3
 
 [mergetool]
 prompt = false
-
-[help]
-autocorrect = 1
-[filter "lfs"]
-clean = git-lfs clean %f
-smudge = git-lfs smudge %f
-required = true
+path = /usr/local/bin/nvim
 
 [diff]
 tool = opendiff
@@ -55,3 +49,10 @@ tool = opendiff
 prompt = false
 [difftool "opendiff"]
 cmd = /usr/bin/opendiff \"$LOCAL\" \"$REMOTE\" -merge \"$MERGED\" | cat
+
+[help]
+autocorrect = 1
+[filter "lfs"]
+clean = git-lfs clean %f
+smudge = git-lfs smudge %f
+required = true
