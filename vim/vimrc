@@ -413,8 +413,7 @@
     let g:deoplete#file#enable_buffer_path = 1
     let deoplete#tag#cache_limit_size = 5000000
     " tab cycle top to bottom
-    inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-    " inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+    let g:SuperTabDefaultCompletionType = "<c-n>"
 
     " Enable omni completion.
     set omnifunc=syntaxcomplete#Complete
