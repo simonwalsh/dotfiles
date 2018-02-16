@@ -1,6 +1,6 @@
-Nicolas Duvieusart Déry's dotfiles, and more.
+# Macbook Setup & Dotfiles
 
-Heavily inspired by https://github.com/alrra/dotfiles
+Heavily inspired by https://github.com/alrra/dotfiles and https://github.com/nddery/dotfiles!
 
 ### Installation
 
@@ -8,7 +8,3 @@ Heavily inspired by https://github.com/alrra/dotfiles
 $ cd dotfiles
 $ ./install
 ```
-
-and follow instruction.
-
-That's it.
