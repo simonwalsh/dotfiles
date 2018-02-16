@@ -3,17 +3,10 @@
 source 'utils.sh'
 
 declare -a DOTFILES_TO_SYMLINK=(
-  'tern-config'
-
-  'shell/tmux.conf'
   'shell/zshrc'
-
   'git/git_template'
   'git/gitconfig'
   'git/gitignore'
-
-  'vim/vimrc'
-  'vim/vimrc.encrypted'
 )
 
 link() {
