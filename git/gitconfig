@@ -1,9 +1,9 @@
 [user]
-name = Nicolas Duvieusart Déry
-email = nddery@gmail.com
+name = Simon Walsh
+email = simon.w.walsh@gmail.com
 
 [core]
-editor = /usr/local/bin/nvim
+editor = code
 excludesfile = ~/.gitignore
 
 [push]
