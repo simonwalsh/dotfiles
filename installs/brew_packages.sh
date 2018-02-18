@@ -15,15 +15,7 @@ declare -a PACKAGES=(
 
   # generic colouriser  http://kassiopeia.juls.savba.sk/~garabik/software/grc/
   'grc'
-
-  'the_silver_searcher'
-  'ack'
-  'fzf'
   'git'
-  'gnupg'
-  'htop-osx'
-  'reattach-to-user-namespace'
-  'tmux'
   'wget:--enable-iri'
   'zsh'
   'zsh-syntax-highlighting'
@@ -31,8 +23,6 @@ declare -a PACKAGES=(
   'z'
 
   'ctags'
-  'vim:--override-system-vi'
-  'neovim'
 
   'yarn:--ignore-dependencies'
 )
