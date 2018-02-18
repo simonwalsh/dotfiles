@@ -6,5 +6,5 @@ Heavily inspired by https://github.com/alrra/dotfiles and https://github.com/ndd
 
 ```
 $ cd dotfiles
-$ ./install
+$ ./install.sh
 ```
