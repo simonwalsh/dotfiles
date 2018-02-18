@@ -8,24 +8,19 @@ declare -a PACKAGES=(
   'google-chrome'
 
   'iterm2'
-  'android-file-transfer'
+  'hyper'
+  'shiftit'
+  'visual-studio-code'
+  'sourcetree'
+  'virtualbox'
+  'postman'
+  'cyberduck'
+  
+  'slack'  
   'spotify'
   'vlc'
-  'disk-inventory-x'
   'dropbox'
-  'flux'
-  'limechat'
-  'utorrent'
-  'rowanj-gitx'
-  'caffeine'
-
-  'qlcolorcode'
-  'qlimagesize'
-  'qlmarkdown'
-  'qlprettypatch'
-  'qlstephen'
-  'quicklook-csv'
-  'quicklook-json'
+  'soda-player'
 )
 
 main() {
