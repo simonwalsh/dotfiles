@@ -32,6 +32,7 @@ declare -a PACKAGES=(
   'openssl'
   'postgresql'
   'chromedriver'
+  'cmake'
 )
 
 main() {
