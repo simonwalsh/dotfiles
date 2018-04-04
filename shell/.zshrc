@@ -3,7 +3,7 @@ ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-ZSH_THEME="honukai"
+ZSH_THEME="agnoster"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -29,7 +29,7 @@ alias gs='git status'
 alias gc='git commit'
 alias ga='git add'
 alias gb='git branch'
-alias gch='git checkout'
+alias gco='git checkout'
 alias gl='git log --pretty=format:"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]" --decorate --date=short'
 alias yesterday="git log --since '1 day ago' --oneline --author nddery@gmail.com"
 
@@ -38,7 +38,7 @@ alias yesterday="git log --since '1 day ago' --oneline --author nddery@gmail.com
 alias vimenc="vim -u ~/.vimrc.encrypted -x"
 
 # Update Brew packages (all)
-alias brewUpdateAll="brew update --all && brew upgrade `brew outdated` && brew cleanup && brew cask cleanup"
+alias bua="brew update --all && brew upgrade `brew outdated` && brew cleanup && brew cask cleanup"
 
 # Let's go to nom!
 alias nom='npm'
@@ -52,19 +52,6 @@ alias rmds="find . -name '*.DS_Store' -type f -delete"
 # Install gems in the <cwd>/.bundle/ directory
 alias bi="bundle install --path=.bundle"
 alias be="bundle exec"
-
-
-# .mov to animated .gif!
-# parameters are input output
-function movtogif() {
-  ffmpeg -i $1 -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=20 > $2
-}
-
-function movtocentral() {
-  FILE=$(basename $1)
-  rsync -avP $1 central@192.168.0.101:/Data/Public/Movies
-  ssh central@192.168.0.101 'sudo chmod -R 0777 /Data/Public/Movies/$FILE'
-}
 
 # Install casks in /Application instead of ~/Applications
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -86,9 +73,11 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Load .zshrc.local if available, overrides other settings.
 [[ -r ~/.zshrc.local ]] && . ~/.zshrc.local
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 export EDITOR=code
 export VISUAL=code
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+[[ -n "$SSH_CLIENT" ]] || export DEFAULT_USER="simonwalsh"
