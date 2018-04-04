@@ -21,6 +21,7 @@ declare -a PACKAGES=(
   'vlc'
   'dropbox'
   'soda-player'
+  'cloudapp'
 )
 
 main() {
