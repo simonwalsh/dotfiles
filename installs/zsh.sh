@@ -9,7 +9,7 @@ main() {
   cd ~
   if [ ! -d .oh-my-zsh ]
   then
-    execute "git clone git@github.com:robbyrussell/oh-my-zsh.git .oh-my-zsh" "Cloned Oh My Zsh"
+    execute "sh -c '$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)'" "Cloned Oh My Zsh"
 
     if [ ! -f ~/.zshrc ]
     then
