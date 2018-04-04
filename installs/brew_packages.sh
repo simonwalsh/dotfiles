@@ -15,6 +15,7 @@ declare -a PACKAGES=(
 
   # generic colouriser  http://kassiopeia.juls.savba.sk/~garabik/software/grc/
   'grc'
+ 
   'git'
   'wget:--enable-iri'
   'zsh'
@@ -25,6 +26,11 @@ declare -a PACKAGES=(
   'ctags'
 
   'yarn:--ignore-dependencies'
+  
+  'imagemagick'
+  'jpeg'
+  'openssl'
+  'postgresql'
 )
 
 main() {
