@@ -8,7 +8,6 @@ declare -a PACKAGES=(
   'google-chrome'
 
   'iterm2'
-  'hyper'
   'shiftit'
   'visual-studio-code'
   'sourcetree'
@@ -16,6 +15,7 @@ declare -a PACKAGES=(
   'postman'
   'cyberduck'
   
+  '1password'
   'slack'  
   'spotify'
   'vlc'
