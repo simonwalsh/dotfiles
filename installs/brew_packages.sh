@@ -31,6 +31,7 @@ declare -a PACKAGES=(
   'jpeg'
   'openssl'
   'postgresql'
+  'chromedrive'
 )
 
 main() {
