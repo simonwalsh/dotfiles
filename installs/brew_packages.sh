@@ -33,6 +33,7 @@ declare -a PACKAGES=(
   'postgresql'
   'chromedriver'
   'cmake'
+  'redis'
 )
 
 main() {
