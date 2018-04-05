@@ -1,0 +1,19 @@
+{
+  "window.zoomLevel": 1,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "editor.tabSize": 2,
+  "stylelint.enable": true,
+  "css.validate": false,
+  "editor.fontFamily": "Operator Mono, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 13,
+  "editor.fontWeight": "100",
+  "editor.renderIndentGuides": true,
+  "guides.enabled": false,
+  "editor.wordWrap": "on",
+  "files.associations": {
+      "*.sgr": "jade"
+  },
+  "[html]": {},
+  "explorer.confirmDragAndDrop": false,
+  "git.enableSmartCommit": true
+}
