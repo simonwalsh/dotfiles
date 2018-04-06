@@ -16,7 +16,8 @@ declare -a PACKAGES=(
   'cyberduck'
   
   '1password'
-  'slack'  
+  'slack'
+  'messenger'
   'spotify'
   'vlc'
   'dropbox'
