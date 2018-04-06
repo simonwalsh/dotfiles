@@ -23,6 +23,7 @@ declare -a PACKAGES=(
   'dropbox'
   'soda-player'
   'cloudapp'
+  'gitbook-editor'
 )
 
 main() {
